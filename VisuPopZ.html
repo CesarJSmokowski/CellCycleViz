@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0052)http://mpf.biol.vt.edu/research/caulobacter/SWST/pp/ -->
+
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Visualization of PopZ Model of <em>Caulobacter</em> cell</title>
+<script type="text/javascript" src="./d3/d3.js"> </script>
+    <script type="text/javascript" src="./CCData/PleC_population.js"> </script>
+    <script type="text/javascript" src="./CCData/PopZ_population.js"> </script>
+    <script type="text/javascript" src="./CCData/smallconfine.js"> </script>
+    <script type="text/javascript" src="./CCData/smallcontour.js"> </script>
+    <script type="text/javascript" src="./CCData/largeconfine.js"> </script>
+    <script type="text/javascript" src="./CCData/largecontour.js"> </script>
+    <script type="text/javascript" src="./CCData/twoconfine.js"> </script>
+    <script type="text/javascript" src="./CCData/twocontour.js"> </script>
+    <script type="text/javascript" src="./CCData/midconfine.js"> </script>
+    <script type="text/javascript" src="./CCData/midcontour.js"> </script>
+    <script type="text/javascript" src="./CCData/lateconfine.js"> </script>
+    <script type="text/javascript" src="./CCData/latecontour.js"> </script>
+    <script type="text/javascript" src="./CCData/endconfine.js"> </script>
+    <script type="text/javascript" src="./CCData/endcontour.js"> </script>
+    <link href="./css/style.css" rel="stylesheet" type="text/css"/>
+<!-- <meta name="Description" content="content=&quot;A" mathematical="" model="" of="" cell="" cycle="" control="" in="" caulobacter"="">
+<meta name="keywords" content="mathematical model Caulobacter model cell cycle control Caulobacter crescentus computational biology systems biology modeling biological network CtrA GcrA DnaA Caulobacter mutants">
+<meta name="robots" content="ALL">
+<meta name="rating" content="General"> -->
+<link href="./css/buddingYeast.css" title="main" rel="stylesheet" type="text/css">
+<!-- <link href="./css/text_only.css" title="Text only" rel="alternate stylesheet" type="text/css">
+ -->
+
+
+<div>
+<h1>Visualization of PopZ model</h1>
+
+<form id="PopZM">
+
+<fieldset data-role="controlgroup">
+      <legend style="font-size:110%"><b>PopZ Model</b> - choose species:</legend>
+
+          <input type="checkbox" id="21">
+          <label for="21" id="201" style="color:black">PopZ-p</label>
+          <input type="checkbox" id="22">
+          <label for="22" id="202" style="color:black">PopZ-m</label>
+          <input type="checkbox" id="23">
+          <label for="23" id="203" style="color:black">mRNA</label>
+          <input type="checkbox" id="24">
+          <label for="24" id="204" style="color:black">Gene</label>
+          
+          <input type="button" id="submitPopZ" onclick="visPopZ()" value="Submit"> 
+          <input type="submit"  value="Clear"> 
+      </fieldset>
+</form>
+
+
+<button id="g-play-button" hidden="hidden">Play</button> 
+
+<!-- <div id="areaPleC"></div> -->
+
+<div id="areaPopZ"></div>
+
+
+
+<div id="FOOTER">
+<span style="float:right">Page designed Oct 6, 2014</span><span style="float:left">Site Design by <a class="credits" style="font-weight:800">  © Tyson's Lab</a></span><center><a class="credits" style="font-weight:800" href="mailto:cmhshirl@vt.edu"><img border="0" src="./CCGraph/mailto.gif"> webmaster</a></center>
+<div style="clear:both"></div>
+</div>
+
+</div>
+
+<!-- <script src="drawPleC.js"></script> -->
+<script src="drawPopZ.js"></script>
+
+<script type="text/javascript">
+
+  function visPopZ(){
+      var speFlag=[0,0,0,0,0];
+      var speNum = 5;
+      var species = ["0","21","22","23","24"];
+      var label = ["000","201","202","203","204"];
+
+      var j=0;
+      var legend = ["none","red","green","blue","cyan","magenta","orange","maroon","lime","black","yellow"];
+      for(var i=1; i<speNum; i++){
+        if(document.getElementById(species[i]).checked){
+          speFlag[i]=1;
+          j=j+1
+          document.getElementById(label[i]).style.color = legend[j]
+          document.getElementById(label[i]).style.fontWeight = "bold"
+        }
+        else {
+          speFlag[i]=0;
+          document.getElementById(label[i]).style.color = "grey"
+        } 
+      document.getElementById(species[i]).disabled = true 
+      document.getElementById('submitPopZ').disabled = true
+      }
+      showPopZ(speFlag); 
+      document.getElementById("g-play-button").hidden = "";
+      beginPopZ()
+  }
+</script>
+
+
+
+</body></html>
+

@@ -1,0 +1,269 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0052)http://mpf.biol.vt.edu/research/caulobacter/SWST/pp/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Spatiotemporal Model of the Asymmetric Division Cycle of <em>Caulobacter</em> cell</title>
+
+<meta name="Description" content="content=&quot;A" mathematical="" model="" of="" cell="" cycle="" control="" in="" caulobacter"="">
+<meta name="keywords" content="mathematical model Caulobacter model cell cycle control Caulobacter crescentus computational biology systems biology modeling biological network CtrA GcrA DnaA Caulobacter mutants">
+<meta name="robots" content="ALL">
+<meta name="rating" content="General">
+<link href="./css/buddingYeast.css" title="main" rel="stylesheet" type="text/css">
+<link href="./css/text_only.css" title="Text only" rel="alternate stylesheet" type="text/css">
+
+<script>
+
+
+</script>
+<style type="text/css"></style>
+
+<style type="text/css"></style></head>
+<body>
+<div id="container">
+<div id="top"><h1>Spatiotemporal Model of the Asymmetric Division Cycle of <em>Caulobacter</em> Cell</h1></div>
+<table id="column_table" width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tbody><tr>
+	<td id="side_column" valign="top">
+<div id="navcontainer">
+<script language="JavaScript">
+
+var menu_sections=new Array("intro","stats", "wildtype", "mutants2", "modelodes", "tools", "other", "who");
+
+/*
+ *  Put sub menus as keys here and use their parents as ids.  This is used later
+ *  to prevent opening of sub menus from closing the parent menu.
+ */
+var menu_parents=new Object();
+menu_parents["justification"] = "model";
+
+
+function hideshow(id) {
+    this_box = document.getElementById(id);
+    if (this_box.style.display == "none")  {
+        this_box.style.display = "";
+    } else {
+        this_box.style.display = "none";
+    }
+	
+	for (i = 0; i <= (menu_sections.length - 1); i++){
+		if (menu_sections[i] != id && menu_sections[i] != menu_parents[id]) {
+			document.getElementById(menu_sections[i]).style.display = "none";
+		}
+	}
+
+} 
+
+function show_diagram(){
+diagram = window.open('../pp/clickable_diag.php','diagram','width=794,height=536');
+diagram.focus();
+}
+</script>
+
+
+<ul id="mainList">
+<li><a href="./CCindex.html.html">Home</a></li>
+<li><a href="./Intro.html">Introduction</a></li>
+<li><a href="#" onclick="hideshow(&#39;PleC&#39;)">Bistable Histidine Kinase</a></li>
+		<ul id="PleC" style="display:">
+		<li><a class="" href="./PDM.html">Model</a></li>
+		<li><a class="" href="./PDR.html">Results</a></li>
+		</ul>
+<li><a href="#" onclick="hideshow(&#39;Loc&#39;)">PleC and DivL Localization</a></li>
+		<ul id="Loc" style="display:none">
+		<li><a class="" href="./DM.html">Model</a></li>
+		<li><a class="" href="./DR.html">Results</a></li>
+		</ul>
+<li><a href="#" onclick="hideshow(&#39;Turing&#39;)">PopZ Localization</a></li>
+		<ul id="Turing" style="display:none">
+				<li><a class="" id="WT_STSW" style="" href="./TM.html">Model</a></li>	
+		<li><a class="" id="WT_Swarmer" style="" href="./TR.html">Results</a></li>		
+		</ul>
+		
+<li><a href="#" onclick="hideshow(&#39;Chromosome&#39;)">Chromosome Segregation</a></li>
+		<ul id="Chromosome" style="display:none">
+		<li><a id="mutant_menu_ctrA" class="" href="./CM.html">Model</a></li>
+<li><a id="mutant_menu_gcrA" class="" href="./CR.html">Results</a></li>
+		</ul>
+<li><a href="./Visualization.html">Visualization</a></li>
+<li><a href="./Contact.html">Contact</a></li>
+
+</ul>
+
+
+</div>
+</td>
+	<td id="content_cell" valign="top">
+	<div id="content">
+
+<style type="text/css">
+
+.style1 {
+	font-size: 12px;
+	font-weight: bold;
+}
+</style>
+
+
+
+
+
+<h2>Bistable histidine kinase switch in <em>Caulobacter crescentus</em></h2>
+
+<p>Orchestration of this asymmetric cell division cycle requires proper temporal and spatial regulation of several key proteins (see Figure 2.1 A). The temporal dynamics of these proteins was captured in a pair of papers by Li et al. [1,2]. At least two of these proteins, PleC and CckA, are bifunctional, capable of acting as either phosphatase or kinase. PleC kinase activity is up- regulated by its own response regulator, DivK. It is unknown how DivK alters the activity of its own phosphorylating enzyme, PleC. DivK is present at roughly constant level throughout the cell cycle [3]. However, PleC is a phosphatase during the swarmer stage of the cell cycle and kinase during the stalked stage (see Figure 2.1 B).
+</p>
+
+<p align="center"><img "="" src="./CCGraph/21.png" width="55%"></p>
+<p class="style1" align="center"> Figure 2.1: <strong>Morphological transitions in <em>Caulobacter crescentus</em> are governed by changes in localization and activity of proteins. (A) Schematic representation of the <em>Caulobacter crescentus</em> cell cycle. The cell undergoes a series of morphological changes from swarmer cell (left)&rarr;nascent stalked cell&rarr;stalked cell&rarr;pre-divisonal cell (right). These events are driven by changes in the activity and localization of cell cycle proteins. In particular, notice that DivL (light blue) and CckA (green) are uniformly distributed on the membrane in the swarmer cell but localized at the poles in the stalked cell. (B) Model of the status of PleC and CckA activity at the old pole in the swarmer cell and in the nascent stalked cell. In the swarmer cell, DivJ is not localized or activated. As a result, PleC is a phosphatase and CckA is a kinase. In the stalked cell, DivJ is localized to the old pole, causing PleC to flip to the kinase form, which in turn induces CckA to switch to a phosphatase.
+</strong></p>
+
+<p>
+The phosphorylation states of DivK and CtrA are governed by the bifunctional histidine kinases PleC and CckA, respectively. Both PleC and CckA can switch between two conformations: a kinase conformation and a phosphatase conformation [4,5] (see Figure 2.1 B). Typically, in bacteria the change in activity of a bifunctional histidine kinase is brought about by an external signal molecule binding to the sensor region of the protein [6]. However, the change in PleC from a phosphatase to a kinase is brought about by its substrate, DivK [4]. In fact, the sensor domain of PleC is not essential
+for its function [7]. This interaction, where substrate binding to a bifunctional histidine kinase changes its function, has, to our knowledge, been observed only for PleC in <em>Caulobacter</em>. It has been suggested that DivK up-regulates PleC kinase activity preferentially in stalked cells because it is in stalked cells where DivK~P and PleC are co-localized at the poles [4].
+</p>
+
+
+
+<p align="center"><img "="" src="./CCGraph/22.png" width="80%"></p>
+<p class="style1" align="center"> Figure 2.2: <strong>The DivJ-PleC-DivK and DivL-CckA-CtrA modules are coupled via DivK~P-DivL interaction. PleC kinase and DivK~P are involved in a positive feedback loop. By phosphorylating DivK, DivJ biases the positive feedback loop toward the PleC kinase state. DivL up-regulates the kinase form of CckA, which in turn phosphorylates CtrA. The phosphorylated form of DivK~P binds to and inactivates DivL, causing CckA to revert to the phosphatase form and dephosphorylate CtrA.
+</strong></p>
+
+
+<p>Taken together, these observations suggest that PleC-DivJ-DivK and DivL-CckA-CtrA are crucial drivers of the swarmer-to-stalked transition, as summarized in Figure 2.1 and Figure 2.2.</p>
+
+
+<p></p>
+
+<h2>Method</h2>
+
+
+<p>
+Here, we propose a mechanism for ligand-dependent modifications of the bifunctional histidine kinase, PleC. The mechanism consists of elementary chemical reactions describing ligands (either DivK or DivK~P) binding to the histidine kinase dimer in either its phosphatase or kinase form. The binding states determine the rates of the autophosphorylation, phosphotransfer, and phosphatase reactions catalyzed by PleC. If DivK~P is more efficient than unphosphorylated DivK at promoting the transition of PleC from phosphatase to kinase, then PleC and DivK~P would be involved in a positive feedback loop. Such positive feedback loops are well known for their tendency to function as bistable toggle switches [8], and toggle switches are well known for their roles in cellular decision- making [9-11] including critical transitions in the eukaryotic cell cycle [12-14].
+</p>
+
+<p>
+We have a detailed model of the interactions between DivK and PleC, under reasonable conditions on the rate constants (or propensities) of these reactions, exhibits robust bistability as a function of DivJ activity. The complete reaction network (Figure 2.3) was translated into a system of 52 non-linear ordinary differential equations using the mass-action law of chemical kinetics, with one exception. The mechanism by which DivL promotes the kinase form of CckA is unknown, so we modeled this step phenomenologically with a Hill function. Because there are many closed loops of elementary chemical reactions in Figure 2.3, we must choose rate constant values that respect the thermodynamic principle of detailed balance. As long as we satisfy these thermodynamic constraints, we find that the reaction network exhibits bistability over a robust range of parameter values. 
+</p>
+
+<p align="center"><img "="" src="./CCGraph/23A.png" width="80%"></p>
+<p class="style1" align="center"> Figure 2.3: <strong>Chemical reaction networks on which the model is based. Here we only show the PleC-DivK system.
+</strong></p>
+
+<p>
+The equations for the full model were encoded as .ode files and simulated using the freely available software, XPP-AUT. The signal-response curves were drawn using the AUTO facility of XPP-AUT. From the data points generated by XPP-AUT, the plots shown in the figures were generated using the python library, Matplotlib [15].
+</p>
+
+
+
+
+<h3><em>Reference</em></h3>
+<ol>
+	<li>Li S, Brazhnik P, Sobral B, Tyson JJ (2008) A Quantitative Study of the Division Cycle of Caulobacter crescentus Stalked Cells. PLoS Computational Biology 4(1): e9.</li>
+	<li>Li S, Brazhnik P, Sobral B, Tyson JJ (2009) Temporal Controls of the Asymmetric Cell Division Cycle in Caulobacter crescentus. PLoS Computational Biology 5(8): e1000463.</li>
+	<li>Jacobs C, Hung D, Shapiro L (2001) Dynamic localization of a cytoplasmic signal transduction response regulator controls morphogenesis during the Caulobacter cell cycle. Proceedings of the National Academy of Sciences of the United States of America 98: 4095-4100.</li>
+	<li>Paul R, Jaeger T, Abel S, Wiederkehr I, Folcher M, et al. (2008) Allosteric regulation of histidine kinases by their cognate response regulator determines cell fate. Cell 133: 452-461.</li>
+	<li>Tsokos CG, Perchuk BS, Laub MT (2011) A dynamic complex of signaling proteins uses polar localization to regulate cell fate asymmetry in Caulobacter crescentus. Dev Cell 20: 329-341.</li>
+	<li>Stewart RC (2010) Protein histidine kinases: assembly of active sites and their regulation in signaling pathways. Current Opinion in Microbiology 13: 133-141.</li>
+	<li>Hecht GB, Lane T, Ohta N, Sommer JM, Newton A (1995) An essential single domain response regulator required for normal cell division and differentiation in Caulobacter crescentus. the The European Molecular Biology Organization Journal 14: 3915-3924.</li>
+	<li>Tyson J (2003) Sniffers, buzzers, toggles and blinkers: dynamics of regulatory and signaling pathways in the cell. Current Opinion in Cell Biology 15: 221-231.</li>
+	<li>Atkinson MR, Savageau MA, Myers JT, Ninfa AJ (2003) Development of genetic circuitry exhibiting toggle switch or oscillatory behavior in Escherichia coli. Cell 113: 597-607.</li>
+	<li>Gardner TS, Cantor CR, Collins JJ (2000) Construction of a genetic toggle switch in Escherichia coli. Nature 403: 339-342.</li>
+	<li>Arkin A, Ross J, McAdams HH (1998) Stochastic kinetic analysis of developmental pathway bifurcation in phage lambda-infected Escherichia coli cells. Genetics 149: 1633-1648.</li>
+	<li>Sha W, Moore J, Chen K, Lassaletta AD, Yi C-S, et al. (2003) Hysteresis drives cell-cycle transitions in Xenopus laevis egg extracts. Proceedings of the National Academy of Sciences of the United States of America 100: 975-980.</li>
+	<li>Yao G, Lee TJ, Mori S, Nevins JR, You L (2008) A bistable Rb-E2F switch underlies the restriction point. Nature Cell Biology 10: 476-482.</li>
+	<li>Novak B, Tyson JJ, Gyorffy B, Csikasz-Nagy A (2007) Irreversible cell-cycle transitions are due to systems-level feedback. Nature Cell Biology 9: 724-728.</li>
+	<li>Hunter JD (2007) Matplotlib: A 2D Graphics Environment. Computing in Science Engineering 9: 90-95.</li>
+
+</ol>
+
+
+
+
+
+
+
+
+
+</div> <!-- end #content -->
+</td></tr>
+</tbody></table>
+
+
+<div id="FOOTER">
+<span style="float:right">Page designed Oct 6, 2014</span><span style="float:left">Site Design by <a class="credits" style="font-weight:800">  © Tyson's Lab</a></span><center><a class="credits" style="font-weight:800" href="mailto:cmhshirl@vt.edu"><img border="0" src="./CCGraph/mailto.gif"> webmaster</a></center>
+<div style="clear:both"></div>
+</div>
+</div>
+
+
+<script type="text/javascript">
+
+/***********************************************
+* http://www.dynamicdrive.com/dynamicindex5/dhtmltooltip.htm
+***********************************************/
+
+var offsetxpoint=-60 //Customize x offset of tooltip
+var offsetypoint=20 //Customize y offset of tooltip
+var ie=document.all
+var ns6=document.getElementById && !document.all
+var enabletip=false
+if (ie||ns6)
+var tipobj=document.all? document.all["dhtmltooltip"] : document.getElementById? document.getElementById("dhtmltooltip") : ""
+
+function ietruebody(){
+return (document.compatMode && document.compatMode!="BackCompat")? document.documentElement : document.body
+}
+
+function ddrivetip(thetext, thecolor, thewidth){
+if (ns6||ie){
+if (typeof thewidth!="undefined") tipobj.style.width=thewidth+"px"
+if (typeof thecolor!="undefined" && thecolor!="") tipobj.style.backgroundColor=thecolor
+tipobj.innerHTML=thetext
+enabletip=true
+return false
+}
+}
+
+function positiontip(e){
+if (enabletip){
+var curX=(ns6)?e.pageX : event.x+ietruebody().scrollLeft;
+var curY=(ns6)?e.pageY : event.y+ietruebody().scrollTop;
+//Find out how close the mouse is to the corner of the window
+var rightedge=ie&&!window.opera? ietruebody().clientWidth-event.clientX-offsetxpoint : window.innerWidth-e.clientX-offsetxpoint-20
+var bottomedge=ie&&!window.opera? ietruebody().clientHeight-event.clientY-offsetypoint : window.innerHeight-e.clientY-offsetypoint-20
+
+var leftedge=(offsetxpoint<0)? offsetxpoint*(-1) : -1000
+
+//if the horizontal distance isn't enough to accomodate the width of the context menu
+if (rightedge<tipobj.offsetWidth)
+//move the horizontal position of the menu to the left by it's width
+tipobj.style.left=ie? ietruebody().scrollLeft+event.clientX-tipobj.offsetWidth+"px" : window.pageXOffset+e.clientX-tipobj.offsetWidth+"px"
+else if (curX<leftedge)
+tipobj.style.left="5px"
+else
+//position the horizontal position of the menu where the mouse is positioned
+tipobj.style.left=curX+offsetxpoint+"px"
+
+//same concept with the vertical position
+if (bottomedge<tipobj.offsetHeight)
+tipobj.style.top=ie? ietruebody().scrollTop+event.clientY-tipobj.offsetHeight-offsetypoint+"px" : window.pageYOffset+e.clientY-tipobj.offsetHeight-offsetypoint+"px"
+else
+tipobj.style.top=curY+offsetypoint+"px"
+tipobj.style.visibility="visible"
+}
+}
+
+function hideddrivetip(){
+if (ns6||ie){
+enabletip=false
+tipobj.style.visibility="hidden"
+tipobj.style.left="-1000px"
+tipobj.style.backgroundColor=''
+tipobj.style.width=''
+}
+}
+
+document.onmousemove=positiontip
+
+</script>
+
+
+</body></html>

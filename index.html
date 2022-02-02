@@ -1,0 +1,391 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0052)http://mpf.biol.vt.edu/research/caulobacter/SWST/pp/ -->
+
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Spatiotemporal Model of the Asymmetric Division Cycle of <em>Caulobacter</em> cell</title>
+<script type="text/javascript" src="./d3/d3.js"> </script>
+    <script type="text/javascript" src="./CCData/PleC_population.js"> </script>
+    <script type="text/javascript" src="./CCData/PopZ_population.js"> </script>
+    <script type="text/javascript" src="./CCData/smallconfine.js"> </script>
+    <script type="text/javascript" src="./CCData/smallcontour.js"> </script>
+    <script type="text/javascript" src="./CCData/largeconfine.js"> </script>
+    <script type="text/javascript" src="./CCData/largecontour.js"> </script>
+    <script type="text/javascript" src="./CCData/twoconfine.js"> </script>
+    <script type="text/javascript" src="./CCData/twocontour.js"> </script>
+    <script type="text/javascript" src="./CCData/midconfine.js"> </script>
+    <script type="text/javascript" src="./CCData/midcontour.js"> </script>
+    <script type="text/javascript" src="./CCData/lateconfine.js"> </script>
+    <script type="text/javascript" src="./CCData/latecontour.js"> </script>
+    <script type="text/javascript" src="./CCData/endconfine.js"> </script>
+    <script type="text/javascript" src="./CCData/endcontour.js"> </script>
+    <link href="./css/style.css" rel="stylesheet" type="text/css"/>
+<meta name="Description" content="content=&quot;A" mathematical="" model="" of="" cell="" cycle="" control="" in="" caulobacter"="">
+<meta name="keywords" content="mathematical model Caulobacter model cell cycle control Caulobacter crescentus computational biology systems biology modeling biological network CtrA GcrA DnaA Caulobacter mutants">
+<meta name="robots" content="ALL">
+<meta name="rating" content="General">
+<link href="./css/buddingYeast.css" title="main" rel="stylesheet" type="text/css">
+<link href="./css/text_only.css" title="Text only" rel="alternate stylesheet" type="text/css">
+
+<script>
+
+
+</script>
+<style type="text/css"></style>
+
+<style type="text/css"></style></head>
+<body>
+<div id="container">
+<div id="top"><h1>Spatiotemporal Model of the Asymmetric Division Cycle of <em>Caulobacter</em> Cell</h1></div>
+<table id="column_table" width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tbody><tr>
+  <td id="side_column" valign="top">
+<div id="navcontainer">
+<script language="JavaScript">
+
+var menu_sections=new Array("intro","stats", "wildtype", "mutants2", "modelodes", "tools", "other", "who");
+
+/*
+ *  Put sub menus as keys here and use their parents as ids.  This is used later
+ *  to prevent opening of sub menus from closing the parent menu.
+ */
+var menu_parents=new Object();
+menu_parents["justification"] = "model";
+
+
+function hideshow(id) {
+    this_box = document.getElementById(id);
+    if (this_box.style.display == "none")  {
+        this_box.style.display = "";
+    } else {
+        this_box.style.display = "none";
+    }
+  
+  for (i = 0; i <= (menu_sections.length - 1); i++){
+    if (menu_sections[i] != id && menu_sections[i] != menu_parents[id]) {
+      document.getElementById(menu_sections[i]).style.display = "none";
+    }
+  }
+
+} 
+
+function show_diagram(){
+diagram = window.open('../pp/clickable_diag.php','diagram','width=794,height=536');
+diagram.focus();
+}
+</script>
+
+
+<ul id="mainList">
+<li><a href="./CCindex.html">Home</a></li>
+<li><a href="./Intro.html">Introduction</a></li>
+<li><a href="#" onclick="hideshow(&#39;PleC&#39;)">Bistable Histidine Kinase</a></li>
+    <ul id="PleC" style="display:none">
+    <li><a class="" href="./PDM.html">Model</a></li>
+    <li><a class="" href="./PDR.html">Results</a></li>
+    </ul>
+<li><a href="#" onclick="hideshow(&#39;Loc&#39;)">PleC and DivL Localization</a></li>
+    <ul id="Loc" style="display:none">
+    <li><a class="" href="./DM.html">Model</a></li>
+    <li><a class="" href="./DR.html">Results</a></li>
+    </ul>
+<li><a href="#" onclick="hideshow(&#39;Turing&#39;)">PopZ Localization</a></li>
+    <ul id="Turing" style="display:none">
+        <li><a class="" id="WT_STSW" style="" href="./TM.html">Model</a></li> 
+    <li><a class="" id="WT_Swarmer" style="" href="./TR.html">Results</a></li>    
+    </ul>
+    
+<li><a href="#" onclick="hideshow(&#39;Chromosome&#39;)">Chromosome Segregation</a></li>
+    <ul id="Chromosome" style="display:none">
+    <li><a id="mutant_menu_ctrA" class="" href="./CM.html">Model</a></li>
+<li><a id="mutant_menu_gcrA" class="" href="./CR.html">Results</a></li>
+    </ul>
+<li><a href="./Visualization.html">Visualization</a></li>
+<li><a href="./Contact.html">Contact</a></li>
+
+</ul>
+
+
+</div>
+</td>
+  <td id="content_cell" valign="top">
+  <div id="content">
+<style type="text/css">
+
+.style1 {
+  font-size: 12px;
+  font-weight: bold;
+}
+</style>
+
+<div id="draw">
+<h2><em>Caulobacter</em> cell Division Visualization</h2>
+<p></p>
+
+<form id="model">
+<b>Select Model:</b>
+  <select id="project" style="font-size:120%">
+    <option value="none"></option>
+    <option value="PleC">PleC</option>
+    <option value="PopZ">PopZ</option>
+  </select>
+</form>
+
+
+<form id="PleCM" hidden="hidden">
+
+<fieldset data-role="controlgroup">
+      <legend style="font-size:110%"><b>PleC Model</b> - choose species:</legend>
+
+          <input type="checkbox" id="1">
+          <label for="1" id="101" style="color:black">PleC-phos</label>
+          <input type="checkbox" id="2">
+          <label for="2" id="102" style="color:black">PleC-kin</label>
+          <input type="checkbox" id="3">
+          <label for="3" id="103" style="color:black">DivK</label>
+          <input type="checkbox" id="4">
+          <label for="4" id="104" style="color:black">DivK~P</label>
+          <input type="checkbox" id="5">
+          <label for="5" id="105" style="color:black">DivJ</label>
+          <input type="checkbox" id="6">
+          <label for="6" id="106" style="color:black">CckA-phos</label>
+          <input type="checkbox" id="7">
+          <label for="7" id="107" style="color:black">CckA-kin</label>
+          <input type="checkbox" id="8">
+          <label for="8" id="108" style="color:black">CtrA</label>
+          <input type="checkbox" id="9">
+          <label for="9" id="109" style="color:black">CtrA~P</label>
+          <input type="checkbox" id="10">
+          <label for="10" id="110" style="color:black">DivL</label>
+          
+          <input type="button" id="submitPleC" onclick="visPleC()" value="Submit"> 
+          <input type="submit"  value="Clear"> 
+      </fieldset>
+</form>
+
+<form id="PopZM" hidden="hidden">
+
+<fieldset data-role="controlgroup">
+      <legend style="font-size:110%"><b>PopZ Model</b> - choose species:</legend>
+
+          <input type="checkbox" id="21">
+          <label for="21" id="201" style="color:black">PopZ-p</label>
+          <input type="checkbox" id="22">
+          <label for="22" id="202" style="color:black">PopZ-m</label>
+          <input type="checkbox" id="23">
+          <label for="23" id="203" style="color:black">mRNA</label>
+          <input type="checkbox" id="24">
+          <label for="24" id="204" style="color:black">Gene</label>
+          
+          <input type="button" id="submitPopZ" onclick="visPopZ()" value="Submit"> 
+          <input type="submit"  value="Clear"> 
+      </fieldset>
+</form>
+
+
+<button id="g-play-button" hidden="hidden">Play</button> 
+
+<div id="areaPleC"> 
+
+</div>
+
+<div id="areaPopZ"> 
+
+</div>
+
+</div>
+
+
+
+
+
+<!-- <p>The movies below show the population of PopZ, mRNA and Gene changing during the division process.</p>
+
+<center>
+
+<P>
+<EMBED SRC="MultiCurve.avi" autostart="false" width="680" height="500">
+</P>
+
+<p class="style1"> Movie 1. PopZ population of four different simulations. If your browser is unable to play this video, right-click over <a href="http://bioinformatics.cs.vt.edu/~cmhshirl/MultiCurve.avi.zip"><em>the link</em></a> and choose save target as.
+</p>
+
+<P>
+<EMBED SRC="meanCurve.avi" autostart="false" width="680" height="500">
+</P>
+
+<p class="style1"> Movie 2. Average population of PopZ, mRNA and Gene (100 simulations). If your browser is unable to play this video, right-click over <a href="http://bioinformatics.cs.vt.edu/~cmhshirl/meanCurve.avi.zip"><em>the link</em></a> and choose save target as.
+</p>
+ -->
+
+
+</div> <!-- end #content -->
+</td></tr>
+</tbody></table>
+
+
+<div id="FOOTER">
+<span style="float:right">Page designed Oct 6, 2014</span><span style="float:left">Site Design by <a class="credits" style="font-weight:800">  © Tyson's Lab</a></span><center><a class="credits" style="font-weight:800" href="mailto:cmhshirl@vt.edu"><img border="0" src="./CCGraph/mailto.gif"> webmaster</a></center>
+<div style="clear:both"></div>
+</div>
+</div>
+
+<script src="drawPleC.js"></script>
+<script src="drawPopZ.js"></script>
+
+<script type="text/javascript">
+
+
+  document.getElementById('project').addEventListener('change', function(){
+      if(document.getElementById('project').value =="none"){
+        document.getElementById("PleCM").hidden = "hidden";
+        document.getElementById("PopZM").hidden = "hidden";
+        document.getElementById("g-play-button").hidden = "hidden";
+        d3.selectAll("svg").remove();
+       }
+      else if(document.getElementById('project').value =="PleC"){
+        document.getElementById("PleCM").hidden = "";
+        document.getElementById("PopZM").hidden = "hidden";
+        document.getElementById("g-play-button").hidden = "hidden";
+        document.getElementById('project').disabled = true 
+      }
+      else if(document.getElementById('project').value =="PopZ"){
+        document.getElementById("PleCM").hidden = "hidden";
+        document.getElementById("PopZM").hidden = "";
+        document.getElementById("g-play-button").hidden = "hidden";
+        document.getElementById('project').disabled = true      
+      }
+   });
+
+  function visPleC(){
+      var speFlag=[0,0,0,0,0,0,0,0,0,0,0];
+      var speNum = 11;
+      var species = ["0","1","2","3","4","5","6","7","8","9","10"];
+      var label = ["000","101","102","103","104","105","106","107","108","109","110"];
+
+      var j=0;
+      var legend = ["none","red","green","blue","cyan","magenta","orange","maroon","lime","black","yellow"];
+      for(var i=1; i<speNum; i++){
+        if(document.getElementById(species[i]).checked){
+          speFlag[i]=1;
+          j=j+1
+          document.getElementById(label[i]).style.color = legend[j]
+          document.getElementById(label[i]).style.fontWeight = "bold"
+        }
+        else {
+          speFlag[i]=0;
+          document.getElementById(label[i]).style.color = "grey"
+        } 
+      document.getElementById(species[i]).disabled = true 
+      document.getElementById('submitPleC').disabled = true
+      }
+      showPleC(speFlag); 
+      document.getElementById("g-play-button").hidden = "";
+      beginPleC()
+  } 
+
+  function visPopZ(){
+      var speFlag=[0,0,0,0,0];
+      var speNum = 5;
+      var species = ["0","21","22","23","24"];
+      var label = ["000","201","202","203","204"];
+
+      var j=0;
+      var legend = ["none","red","green","blue","cyan","magenta","orange","maroon","lime","black","yellow"];
+      for(var i=1; i<speNum; i++){
+        if(document.getElementById(species[i]).checked){
+          speFlag[i]=1;
+          j=j+1
+          document.getElementById(label[i]).style.color = legend[j]
+          document.getElementById(label[i]).style.fontWeight = "bold"
+        }
+        else {
+          speFlag[i]=0;
+          document.getElementById(label[i]).style.color = "grey"
+        } 
+      document.getElementById(species[i]).disabled = true 
+      document.getElementById('submitPopZ').disabled = true
+      }
+      showPopZ(speFlag); 
+      document.getElementById("g-play-button").hidden = "";
+      beginPopZ()
+  }
+</script>
+
+
+
+
+<script type="text/javascript">
+
+/***********************************************
+* http://www.dynamicdrive.com/dynamicindex5/dhtmltooltip.htm
+***********************************************/
+
+var offsetxpoint=-60 //Customize x offset of tooltip
+var offsetypoint=20 //Customize y offset of tooltip
+var ie=document.all
+var ns6=document.getElementById && !document.all
+var enabletip=false
+if (ie||ns6)
+var tipobj=document.all? document.all["dhtmltooltip"] : document.getElementById? document.getElementById("dhtmltooltip") : ""
+
+function ietruebody(){
+return (document.compatMode && document.compatMode!="BackCompat")? document.documentElement : document.body
+}
+
+function ddrivetip(thetext, thecolor, thewidth){
+if (ns6||ie){
+if (typeof thewidth!="undefined") tipobj.style.width=thewidth+"px"
+if (typeof thecolor!="undefined" && thecolor!="") tipobj.style.backgroundColor=thecolor
+tipobj.innerHTML=thetext
+enabletip=true
+return false
+}
+}
+
+function positiontip(e){
+if (enabletip){
+var curX=(ns6)?e.pageX : event.x+ietruebody().scrollLeft;
+var curY=(ns6)?e.pageY : event.y+ietruebody().scrollTop;
+//Find out how close the mouse is to the corner of the window
+var rightedge=ie&&!window.opera? ietruebody().clientWidth-event.clientX-offsetxpoint : window.innerWidth-e.clientX-offsetxpoint-20
+var bottomedge=ie&&!window.opera? ietruebody().clientHeight-event.clientY-offsetypoint : window.innerHeight-e.clientY-offsetypoint-20
+
+var leftedge=(offsetxpoint<0)? offsetxpoint*(-1) : -1000
+
+//if the horizontal distance isn't enough to accomodate the width of the context menu
+if (rightedge<tipobj.offsetWidth)
+//move the horizontal position of the menu to the left by it's width
+tipobj.style.left=ie? ietruebody().scrollLeft+event.clientX-tipobj.offsetWidth+"px" : window.pageXOffset+e.clientX-tipobj.offsetWidth+"px"
+else if (curX<leftedge)
+tipobj.style.left="5px"
+else
+//position the horizontal position of the menu where the mouse is positioned
+tipobj.style.left=curX+offsetxpoint+"px"
+
+//same concept with the vertical position
+if (bottomedge<tipobj.offsetHeight)
+tipobj.style.top=ie? ietruebody().scrollTop+event.clientY-tipobj.offsetHeight-offsetypoint+"px" : window.pageYOffset+e.clientY-tipobj.offsetHeight-offsetypoint+"px"
+else
+tipobj.style.top=curY+offsetypoint+"px"
+tipobj.style.visibility="visible"
+}
+}
+
+function hideddrivetip(){
+if (ns6||ie){
+enabletip=false
+tipobj.style.visibility="hidden"
+tipobj.style.left="-1000px"
+tipobj.style.backgroundColor=''
+tipobj.style.width=''
+}
+}
+
+document.onmousemove=positiontip
+
+</script>
+
+
+</body></html>
+

@@ -1,0 +1,221 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0052)http://mpf.biol.vt.edu/research/caulobacter/SWST/pp/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Spatiotemporal Model of the Asymmetric Division Cycle of <em>Caulobacter</em> cell</title>
+
+<meta name="Description" content="content=&quot;A" mathematical="" model="" of="" cell="" cycle="" control="" in="" caulobacter"="">
+<meta name="keywords" content="mathematical model Caulobacter model cell cycle control Caulobacter crescentus computational biology systems biology modeling biological network CtrA GcrA DnaA Caulobacter mutants">
+<meta name="robots" content="ALL">
+<meta name="rating" content="General">
+<link href="./css/buddingYeast.css" title="main" rel="stylesheet" type="text/css">
+<link href="./css/text_only.css" title="Text only" rel="alternate stylesheet" type="text/css">
+
+<script>
+
+
+</script>
+<style type="text/css"></style>
+
+<style type="text/css"></style></head>
+<body>
+<div id="container">
+<div id="top"><h1>Spatiotemporal Model of the Asymmetric Division Cycle of <em>Caulobacter</em> Cell</h1></div>
+<table id="column_table" width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tbody><tr>
+	<td id="side_column" valign="top">
+<div id="navcontainer">
+<script language="JavaScript">
+
+var menu_sections=new Array("intro","stats", "wildtype", "mutants2", "modelodes", "tools", "other", "who");
+
+/*
+ *  Put sub menus as keys here and use their parents as ids.  This is used later
+ *  to prevent opening of sub menus from closing the parent menu.
+ */
+var menu_parents=new Object();
+menu_parents["justification"] = "model";
+
+
+function hideshow(id) {
+    this_box = document.getElementById(id);
+    if (this_box.style.display == "none")  {
+        this_box.style.display = "";
+    } else {
+        this_box.style.display = "none";
+    }
+	
+	for (i = 0; i <= (menu_sections.length - 1); i++){
+		if (menu_sections[i] != id && menu_sections[i] != menu_parents[id]) {
+			document.getElementById(menu_sections[i]).style.display = "none";
+		}
+	}
+
+} 
+
+function show_diagram(){
+diagram = window.open('../pp/clickable_diag.php','diagram','width=794,height=536');
+diagram.focus();
+}
+</script>
+
+
+<ul id="mainList">
+<li><a href="./CCindex.html.html">Home</a></li>
+<li><a href="./Intro.html">Introduction</a></li>
+<li><a href="#" onclick="hideshow(&#39;PleC&#39;)">Bistable Histidine Kinase</a></li>
+		<ul id="PleC" style="display:none">
+		<li><a class="" href="./PDM.html">Model</a></li>
+		<li><a class="" href="./PDR.html">Results</a></li>
+		</ul>
+<li><a href="#" onclick="hideshow(&#39;Loc&#39;)">PleC and DivL Localization</a></li>
+		<ul id="Loc" style="display:none">
+		<li><a class="" href="./DM.html">Model</a></li>
+		<li><a class="" href="./DR.html">Results</a></li>
+		</ul>
+<li><a href="#" onclick="hideshow(&#39;Turing&#39;)">PopZ Localization</a></li>
+		<ul id="Turing" style="display:">
+				<li><a class="" id="WT_STSW" style="" href="./TM.html">Model</a></li>	
+		<li><a class="" id="WT_Swarmer" style="" href="./TR.html">Results</a></li>		
+		</ul>
+		
+<li><a href="#" onclick="hideshow(&#39;Chromosome&#39;)">Chromosome Segregation</a></li>
+		<ul id="Chromosome" style="display:none">
+		<li><a id="mutant_menu_ctrA" class="" href="./CM.html">Model</a></li>
+<li><a id="mutant_menu_gcrA" class="" href="./CR.html">Results</a></li>
+		</ul>
+<li><a href="./Visualization.html">Visualization</a></li>
+<li><a href="./Contact.html">Contact</a></li>
+
+</ul>
+
+
+</div>
+</td>
+	<td id="content_cell" valign="top">
+	<div id="content">
+<style type="text/css">
+.style1 {
+	font-size: 12px;
+	font-weight: bold;
+}
+</style>
+
+
+
+<h3>1. Transient polar localization of a nucleating factor may generate bipolar PopZ patterns</h3>
+
+<p align="center"><img "="" src="./CCGraph/53.png" width="60%"></p>
+<p class="style1" align="center"> Figure 4.3: <strong>Presence of a nucleating factor at the poles can bias PopZ self-assembly at the poles.
+Color indicates concentration gradients from minimum (blue) to maximum (red). (A) Nucleating factor is present uniformly across the length of the cell during the cell cycle. (B) Nucleating factor is present in five compartments at each pole during the course of the cell cycle.
+</strong></p>
+
+
+
+
+<h3>2. Bipolar patterns of PopZ can be generated in the absence of nucleating factors</h3>
+
+<p align="center"><img "="" src="./CCGraph/55.png" width="55%"></p>
+<p class="style1" align="center"> Figure 4.4: <strong>Unipolar to bipolar transitions in PopZ localization can be realized in the absence of nucleating factors. Color indicates concentration gradients from minimum (blue) to maximum (red). (A) One division cycle (150 min). Left panel: k<sub>dnv</sub> = 1 min<sup>-1</sup>; a single PopZ focus forms at the center of the cell. Right panel: k<sub>dnv</sub> = 12 min<sup>-1</sup>; a PopZ focus forms at the old end of the cell, and a second focus forms at the new end at t = 100 min. (B) A non-dividing (filamentous) cell. Left panel: k<sub>dnv</sub> = 1 min<sup>-1</sup>; PopZ polymers undergo splitting to form a branched pattern as the cell grows. Right panel: k<sub>dnv</sub> = 1 min<sup>-1</sup>; new PopZ foci arise de novo as the cell grows.
+</strong></p>
+
+<h3>3. Localization of slow diffusing popZ mRNA suggests that bipolarity requires the presence of two popZ genes</h3>
+
+<p align="center"><img "="" src="./CCGraph/56.png" width="70%"></p>
+<p class="style1" align="center"> Figure 4.5: <strong>Stochastic simulations show that limited dispersal of mRNA produced from a single gene results in unipolar PopZ patterns. One popZ gene is present throughout the cell cycle at a distance of 0.2&#8226;Lt from the old pole producing mRNA with a diffusion coefficient of 0.05 &mu;m<sup>2</sup>min<sup>-1</sup>. For popZ gene, color indicates presence (blue) or absence (yellow) of the gene. For popZ mRNA and PopZ protein, color indicates concentration gradients from minimum (blue) to maximum (red).
+</strong></p>
+
+<p align="center"><img "="" src="./CCGraph/58.png" width="70%"></p>
+<p class="style1" align="center"> Figure 4.6: <strong>Stochastic simulation of the two-gene model. (A) One popZ gene (red) is constantly present at a distance of 0.2&#8226;Lt from the old pole, while a second popZ gene (blue) is introduced at t = 50 min. The second popZ gene is translocated across the cell until it reaches a distance of 0.2&#8226;Lt from the new pole. popZ mRNA (D<sub>mRNA</sub> = 0.05 &mu;m<sup>2</sup>min<sup>-1</sup>) is produced by both genes. PopZ polymer shows a unipolar-to-bipolar transition at t = 92 min. For popZ gene, color indicates presence (blue) or absence (yellow) of the gene. For popZ mRNA and PopZ protein, color indicates concentration gradients from minimum (blue) to maximum (red). (B) Distribution of the time (left panel) and cell size (right panel) at which popZ gene segregation is completed (green bars) and PopZ becomes bipolar (red bars).
+</strong></p>
+
+<h3>4. The two-gene model of PopZ localization recreates distribution patterns observed in mutant cells</h3>
+
+<p align="center"><img "="" src="./CCGraph/59.png" width="70%"></p>
+<p class="style1" align="center"> Figure 4.7: <strong>The two-gene model can also account for observed PopZ distribution patterns in mutant cells. For popZ gene, color indicates presence (blue) or absence (yellow) of the gene. For popZ mRNA and PopZ protein, color indicates concentration gradients from minimum (blue) to maximum (red). (A) Shifting the position of a single popZ gene from the old pole to the new pole results in a corresponding shift in the polar localization of PopZ polymer (k<sub>syn-mRNA</sub> = 2 min<sup>-1</sup>, D<sub>mRNA</sub> = 0.05 &mu;m<sup>2</sup>min<sup>-1</sup>). (B) Transient bipolar localization of PopZ is observed under mild-overproduction (ksyn-mRNA = 3 min−1) and faster diffusion of mRNA (D<sub>mRNA</sub> = 0.5 &mu;m<sup>2</sup>min<sup>-1</sup>). (C) Overexpression (k<sub>syn-mRNA</sub> = 10 min<sup>-1</sup>) results in PopZ polymerizing further into the cytoplasm.
+</strong></p>
+
+</div> <!-- end #content -->
+</td></tr>
+</tbody></table>
+
+
+<div id="FOOTER">
+<span style="float:right">Page designed Oct 6, 2014</span><span style="float:left">Site Design by <a class="credits" style="font-weight:800">  © Tyson's Lab</a></span><center><a class="credits" style="font-weight:800" href="mailto:cmhshirl@vt.edu"><img border="0" src="./CCGraph/mailto.gif"> webmaster</a></center>
+<div style="clear:both"></div>
+</div>
+</div>
+
+
+<script type="text/javascript">
+
+/***********************************************
+* http://www.dynamicdrive.com/dynamicindex5/dhtmltooltip.htm
+***********************************************/
+
+var offsetxpoint=-60 //Customize x offset of tooltip
+var offsetypoint=20 //Customize y offset of tooltip
+var ie=document.all
+var ns6=document.getElementById && !document.all
+var enabletip=false
+if (ie||ns6)
+var tipobj=document.all? document.all["dhtmltooltip"] : document.getElementById? document.getElementById("dhtmltooltip") : ""
+
+function ietruebody(){
+return (document.compatMode && document.compatMode!="BackCompat")? document.documentElement : document.body
+}
+
+function ddrivetip(thetext, thecolor, thewidth){
+if (ns6||ie){
+if (typeof thewidth!="undefined") tipobj.style.width=thewidth+"px"
+if (typeof thecolor!="undefined" && thecolor!="") tipobj.style.backgroundColor=thecolor
+tipobj.innerHTML=thetext
+enabletip=true
+return false
+}
+}
+
+function positiontip(e){
+if (enabletip){
+var curX=(ns6)?e.pageX : event.x+ietruebody().scrollLeft;
+var curY=(ns6)?e.pageY : event.y+ietruebody().scrollTop;
+//Find out how close the mouse is to the corner of the window
+var rightedge=ie&&!window.opera? ietruebody().clientWidth-event.clientX-offsetxpoint : window.innerWidth-e.clientX-offsetxpoint-20
+var bottomedge=ie&&!window.opera? ietruebody().clientHeight-event.clientY-offsetypoint : window.innerHeight-e.clientY-offsetypoint-20
+
+var leftedge=(offsetxpoint<0)? offsetxpoint*(-1) : -1000
+
+//if the horizontal distance isn't enough to accomodate the width of the context menu
+if (rightedge<tipobj.offsetWidth)
+//move the horizontal position of the menu to the left by it's width
+tipobj.style.left=ie? ietruebody().scrollLeft+event.clientX-tipobj.offsetWidth+"px" : window.pageXOffset+e.clientX-tipobj.offsetWidth+"px"
+else if (curX<leftedge)
+tipobj.style.left="5px"
+else
+//position the horizontal position of the menu where the mouse is positioned
+tipobj.style.left=curX+offsetxpoint+"px"
+
+//same concept with the vertical position
+if (bottomedge<tipobj.offsetHeight)
+tipobj.style.top=ie? ietruebody().scrollTop+event.clientY-tipobj.offsetHeight-offsetypoint+"px" : window.pageYOffset+e.clientY-tipobj.offsetHeight-offsetypoint+"px"
+else
+tipobj.style.top=curY+offsetypoint+"px"
+tipobj.style.visibility="visible"
+}
+}
+
+function hideddrivetip(){
+if (ns6||ie){
+enabletip=false
+tipobj.style.visibility="hidden"
+tipobj.style.left="-1000px"
+tipobj.style.backgroundColor=''
+tipobj.style.width=''
+}
+}
+
+document.onmousemove=positiontip
+
+</script>
+
+
+</body></html>

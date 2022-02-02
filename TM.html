@@ -1,0 +1,256 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0052)http://mpf.biol.vt.edu/research/caulobacter/SWST/pp/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Spatiotemporal Model of the Asymmetric Division Cycle of <em>Caulobacter</em> cell</title>
+
+<meta name="Description" content="content=&quot;A" mathematical="" model="" of="" cell="" cycle="" control="" in="" caulobacter"="">
+<meta name="keywords" content="mathematical model Caulobacter model cell cycle control Caulobacter crescentus computational biology systems biology modeling biological network CtrA GcrA DnaA Caulobacter mutants">
+<meta name="robots" content="ALL">
+<meta name="rating" content="General">
+<link href="./css/buddingYeast.css" title="main" rel="stylesheet" type="text/css">
+<link href="./css/text_only.css" title="Text only" rel="alternate stylesheet" type="text/css">
+
+<script>
+
+
+</script>
+<style type="text/css"></style>
+
+<style type="text/css"></style></head>
+<body>
+<div id="container">
+<div id="top"><h1>Spatiotemporal Model of the Asymmetric Division Cycle of <em>Caulobacter</em> Cell</h1></div>
+<table id="column_table" width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tbody><tr>
+	<td id="side_column" valign="top">
+<div id="navcontainer">
+<script language="JavaScript">
+
+var menu_sections=new Array("intro","stats", "wildtype", "mutants2", "modelodes", "tools", "other", "who");
+
+/*
+ *  Put sub menus as keys here and use their parents as ids.  This is used later
+ *  to prevent opening of sub menus from closing the parent menu.
+ */
+var menu_parents=new Object();
+menu_parents["justification"] = "model";
+
+
+function hideshow(id) {
+    this_box = document.getElementById(id);
+    if (this_box.style.display == "none")  {
+        this_box.style.display = "";
+    } else {
+        this_box.style.display = "none";
+    }
+	
+	for (i = 0; i <= (menu_sections.length - 1); i++){
+		if (menu_sections[i] != id && menu_sections[i] != menu_parents[id]) {
+			document.getElementById(menu_sections[i]).style.display = "none";
+		}
+	}
+
+} 
+
+function show_diagram(){
+diagram = window.open('../pp/clickable_diag.php','diagram','width=794,height=536');
+diagram.focus();
+}
+</script>
+
+
+<ul id="mainList">
+<li><a href="./CCindex.html.html">Home</a></li>
+<li><a href="./Intro.html">Introduction</a></li>
+<li><a href="#" onclick="hideshow(&#39;PleC&#39;)">Bistable Histidine Kinase</a></li>
+		<ul id="PleC" style="display:none">
+		<li><a class="" href="./PDM.html">Model</a></li>
+		<li><a class="" href="./PDR.html">Results</a></li>
+		</ul>
+<li><a href="#" onclick="hideshow(&#39;Loc&#39;)">PleC and DivL Localization</a></li>
+		<ul id="Loc" style="display:none">
+		<li><a class="" href="./DM.html">Model</a></li>
+		<li><a class="" href="./DR.html">Results</a></li>
+		</ul>
+<li><a href="#" onclick="hideshow(&#39;Turing&#39;)">PopZ Localization</a></li>
+		<ul id="Turing" style="display:">
+				<li><a class="" id="WT_STSW" style="" href="./TM.html">Model</a></li>	
+		<li><a class="" id="WT_Swarmer" style="" href="./TR.html">Results</a></li>		
+		</ul>
+		
+<li><a href="#" onclick="hideshow(&#39;Chromosome&#39;)">Chromosome Segregation</a></li>
+		<ul id="Chromosome" style="display:none">
+		<li><a id="mutant_menu_ctrA" class="" href="./CM.html">Model</a></li>
+<li><a id="mutant_menu_gcrA" class="" href="./CR.html">Results</a></li>
+		</ul>
+<li><a href="./Visualization.html">Visualization</a></li>
+<li><a href="./Contact.html">Contact</a></li>
+
+</ul>
+
+
+</div>
+</td>
+	<td id="content_cell" valign="top">
+	<div id="content">
+<style type="text/css">
+
+.style1 {
+	font-size: 12px;
+	font-weight: bold;
+}
+</style>
+
+
+
+
+
+<h2>Physiology of protein localization in the <em>Caulobacter</em> cell cycle</h2>
+
+<p>In <em>Caulobacter crescentus</em>, a model organism for the study of protein localization [1], the polymer PopZ has been identified as a potential landmark protein [2,3]. PopZ localizes to the old pole of newborn cells, and then attains a second zone of polymerization at the new pole in predivisional cells (see Figure 4.1). One function of PopZ is to act as a scaffold tethering segregated chromosomes to the two poles of the cell [4]. As the chromosomes segregate to opposite poles of the cell, the cell division protein FtsZ (a tubulin homologue) polymerizes near the midpoint of the cell, at the future site of cell division. FtsZ polymerization at the correct time and place is a consequence of chromosome segregation. The moving chromosome front carries with it MipZ, a protein that promotes depolymerization of FtsZ [5,6]. As the replicated chromosomes segregate to opposite poles of the cell, the maximum concentration of MipZ localizes to the poles. Hence, the maximum concentration of FtsZ is found at the center of the cell, where MipZ concentration is lowest. Interestingly, the FtsZ peak is very sharp, much sharper than the drop off in MipZ would suggest.
+</p>
+
+<p align="center"><img "="" src="./CCGraph/51.png" width="70%"></p>
+<p class="style1" align="center"> Figure 4.1: <strong>Schematic representation of the dynamic localization of poteins during the <em>Caulobacter crescentus</em> cell cycle. PopZ polymer present at the old pole tethers the chromosome by docking the <em>parS</em>-ParB centromeric complex. Later in the cell cycle, PopZ polymer appears at the new pole, where it docks the newly replicated <em>parS</em>-ParB front. MipZ, which co-localizes with ParB, is a negative regulator of FtsZ polymerization. Hence, FtsZ, which promotes cell division, is always found to localize at the position in the cell that has the lowest concentration of MipZ.
+</strong></p>
+
+<p>
+	While the dynamic localization of PopZ is clearly observed and its role in the cell cycle understood, the mechanism behind PopZ localization is still being investigated and debated. Any one or a combination of these mechanisms may be responsible for new-pole localization of PopZ; or it may be that none of them play a definitive role in PopZ localization. In this paper we argue that PopZ localization may depend on a Turing-type mechanism [7,8] by comparing the predictions of a mathematical model to well established properties of PopZ patterns. We also propose that the sharp FtsZ band at the site of cell division is a consequence of a Turing-type mechanism of self-activating assembly and focusing. Our final model of the PopZ-MipZ-FtsZ interaction network will be formulated as a set of partial differential equations and solved using the Method of Lines (Methods). Simulations of the model reproduce experimentally observed spatiotemporal distributions of these proteins during the cell cycle of wild-type and mutant <em>Caulobacter</em> cells.
+</p>
+
+<p></p>
+
+<h2>Spatiotemporal dynamics of Turing patterns</h2>
+
+<p>
+Turing models are best known for explaining patterns that are periodic in space [7,8]. The theory of Turing patterns predicts that stable, stationary patterns can be generated for a two-species system if two conditions are satisfied: one species must be self-activating and slow diffusing, while the other species must diffuse significantly faster and have an inhibitory effect on the self-activating species. In the Activator-Inhibitor Production (A-IP) version of Turing's mechanism, the initial patch of activator forms by chance, followed by local production of inhibitor molecules, which diffuse rapidly away from the activator patch and inhibit production of activator in the surrounding region [9-11]. At some distance away, the inhibitor concentration is low enough to permit a new zone of activator self-amplified accumulation. An alternative version of the scheme is the Activator-Substrate Depletion (A-SD) mechanism, where a substrate is converted to product by an autocatalytic reaction [10,11]. Local accumulation of the self-activating product depletes surrounding regions of the rapidly diffusing substrate. Only some distance away will substrate concentration be large enough to support a new zone of product accumulation. This critical distance between activator peaks (where inhibitor concentration is low enough or substrate concentration is high enough) is the characteristic wavelength, &lambda;<sub>0</sub>, of a Turing pattern (Figure 4.2).
+
+</p>
+
+
+<p align="center"><img "="" src="./CCGraph/52.png" width="70%"></p>
+<p class="style1" align="center"> Figure 4.2: <strong>Two scenarios for the function of PleC (kinase or phosphatase) in the early predivisional (PD) cell. Spatiotemporal dynamics of PleC (green) and DivL (dark blue) during the cell cycle under these two scenarios.
+</strong></p>
+
+
+<p></p>
+
+<h2>Method</h2>
+
+
+<p>
+We model Turing patterns in one spatial dimension x, by RDEs for activator concentration a(x,t) and substrate concentration s(x,t):</p>
+
+<p align="center"><img "="" src="./CCGraph/4e1.png" width="85%"></p>
+
+<p>
+	The "classical Geirer-Meinhardt" equations lack the terms k<sub>dnv</sub>&#8226;s and k<sub>as</sub>&#8226;a, which correspond to de novo synthesis of activator (polymer) from substrate (monomer) and to dissociation of polymer into monomers. We solve the RDEs (1-2) in one spatial dimension, by the method of lines [12]. That is, we discretize the spatial dimension into n compartments (n = 100) of length h = L/n, and approximate it by a central difference scheme (Eq. 3a). We implement no-flux boundary conditions as described in Eq. (3b,c). (In these equations, c<sub>i</sub> represents the concentration of either activator or substrate in compartment i.)
+</p>
+<p align="center"><img "="" src="./CCGraph/4e2.png" width="85%"></p>
+
+<p>
+	The resulting 2n+1 ordinary differential equations are solved using MATLAB's ode15s solver. 
+</p>
+
+<h3><em>Reference</em></h3>
+<ol>
+	<li>Goley ED, Iniesta AA, Shapiro L (2007) Cell cycle regulation in Caulobacter: location, location, location. J Cell Sci 120: 3501-3507.</li>
+	<li>Ebersbach G, Briegel A, Jensen GJ, Jacobs-Wagner C (2008) A self-associating protein critical for chromosome attachment, division, and polar organization in caulobacter. Cell 134: 956-968.</li>
+	<li>Bowman GR, Comolli LR, Zhu J, Eckart M, Koenig M, et al. (2008) A polymeric protein anchors the chromosomal origin/ParB complex at a bacterial cell pole. Cell 134: 945-955.</li>
+	<li>Bowman GR, Comolli LR, Gaietta GM, Fero M, Hong S-H, et al. (2010) Caulobacter PopZ forms a polar subdomain dictating sequential changes in pole composition and function. Mol Microbiol 76: 173-189.</li>
+	<li>Thanbichler M, Shapiro L (2006) MipZ, a spatial regulator coordinating chromosome segregation with cell division in Caulobacter. Cell 126: 147-162.</li>
+	<li>Kiekebusch D, Michie KA, Essen LO, Lowe J, Thanbichler M (2012) Localized Dimerization and Nucleoid Binding Drive Gradient Formation by the Bacterial Cell Division Inhibitor MipZ. Mol Cell 46: 245-259.</li>
+	<li>Turing AM (1952) The Chemical Basis of Morphogenesis. Philos Trans R Soc B Biol Sci 237: 37-72.</li>
+	<li>Kondo S, Miura T (2010) Reaction-diffusion model as a framework for understanding biological pattern formation. Science 329: 1616-1620.</li>
+	<li>Gierer A, Meinhardt H (1972) A theory of biological pattern formation. Kybernetik 12: 30-39.</li>
+	<li>Meinhardt H, Gierer A (2000) Pattern formation by local self-activation and lateral inhibition. Bioessays 22: 753-760.</li>
+	<li>Meinhardt H (1982) Models of biological pattern formation. Research Gate. pp. 1-10.</li>
+	<li>Schiesser WE (1991) The Numerical method of lines. Academic Press.</li>
+</ol>
+
+
+</div> <!-- end #content -->
+</td></tr>
+</tbody></table>
+
+
+<div id="FOOTER">
+<span style="float:right">Page designed Oct 6, 2014</span><span style="float:left">Site Design by <a class="credits" style="font-weight:800">  © Tyson's Lab</a></span><center><a class="credits" style="font-weight:800" href="mailto:cmhshirl@vt.edu"><img border="0" src="./CCGraph/mailto.gif"> webmaster</a></center>
+<div style="clear:both"></div>
+</div>
+</div>
+
+
+<script type="text/javascript">
+
+/***********************************************
+* http://www.dynamicdrive.com/dynamicindex5/dhtmltooltip.htm
+***********************************************/
+
+var offsetxpoint=-60 //Customize x offset of tooltip
+var offsetypoint=20 //Customize y offset of tooltip
+var ie=document.all
+var ns6=document.getElementById && !document.all
+var enabletip=false
+if (ie||ns6)
+var tipobj=document.all? document.all["dhtmltooltip"] : document.getElementById? document.getElementById("dhtmltooltip") : ""
+
+function ietruebody(){
+return (document.compatMode && document.compatMode!="BackCompat")? document.documentElement : document.body
+}
+
+function ddrivetip(thetext, thecolor, thewidth){
+if (ns6||ie){
+if (typeof thewidth!="undefined") tipobj.style.width=thewidth+"px"
+if (typeof thecolor!="undefined" && thecolor!="") tipobj.style.backgroundColor=thecolor
+tipobj.innerHTML=thetext
+enabletip=true
+return false
+}
+}
+
+function positiontip(e){
+if (enabletip){
+var curX=(ns6)?e.pageX : event.x+ietruebody().scrollLeft;
+var curY=(ns6)?e.pageY : event.y+ietruebody().scrollTop;
+//Find out how close the mouse is to the corner of the window
+var rightedge=ie&&!window.opera? ietruebody().clientWidth-event.clientX-offsetxpoint : window.innerWidth-e.clientX-offsetxpoint-20
+var bottomedge=ie&&!window.opera? ietruebody().clientHeight-event.clientY-offsetypoint : window.innerHeight-e.clientY-offsetypoint-20
+
+var leftedge=(offsetxpoint<0)? offsetxpoint*(-1) : -1000
+
+//if the horizontal distance isn't enough to accomodate the width of the context menu
+if (rightedge<tipobj.offsetWidth)
+//move the horizontal position of the menu to the left by it's width
+tipobj.style.left=ie? ietruebody().scrollLeft+event.clientX-tipobj.offsetWidth+"px" : window.pageXOffset+e.clientX-tipobj.offsetWidth+"px"
+else if (curX<leftedge)
+tipobj.style.left="5px"
+else
+//position the horizontal position of the menu where the mouse is positioned
+tipobj.style.left=curX+offsetxpoint+"px"
+
+//same concept with the vertical position
+if (bottomedge<tipobj.offsetHeight)
+tipobj.style.top=ie? ietruebody().scrollTop+event.clientY-tipobj.offsetHeight-offsetypoint+"px" : window.pageYOffset+e.clientY-tipobj.offsetHeight-offsetypoint+"px"
+else
+tipobj.style.top=curY+offsetypoint+"px"
+tipobj.style.visibility="visible"
+}
+}
+
+function hideddrivetip(){
+if (ns6||ie){
+enabletip=false
+tipobj.style.visibility="hidden"
+tipobj.style.left="-1000px"
+tipobj.style.backgroundColor=''
+tipobj.style.width=''
+}
+}
+
+document.onmousemove=positiontip
+
+</script>
+
+
+</body></html>

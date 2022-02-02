@@ -1,0 +1,249 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0052)http://mpf.biol.vt.edu/research/caulobacter/SWST/pp/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Spatiotemporal Model of the Asymmetric Division Cycle of <em>Caulobacter</em> cell</title>
+
+<meta name="Description" content="content=&quot;A" mathematical="" model="" of="" cell="" cycle="" control="" in="" caulobacter"="">
+<meta name="keywords" content="mathematical model Caulobacter model cell cycle control <em>Caulobacter crescentus</em> computational biology systems biology modeling biological network CtrA GcrA DnaA Caulobacter mutants">
+<meta name="robots" content="ALL">
+<meta name="rating" content="General">
+<link href="./css/buddingYeast.css" title="main" rel="stylesheet" type="text/css">
+<link href="./css/text_only.css" title="Text only" rel="alternate stylesheet" type="text/css">
+
+<script>
+
+
+</script>
+<style type="text/css"></style>
+
+<style type="text/css"></style></head>
+<body>
+<div id="container">
+<div id="top"><h1>Spatiotemporal Model of the Asymmetric Division Cycle of <em>Caulobacter</em> Cell</h1></div>
+<table id="column_table" width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tbody><tr>
+	<td id="side_column" valign="top">
+<div id="navcontainer">
+<script language="JavaScript">
+
+var menu_sections=new Array("intro","stats", "wildtype", "mutants2", "modelodes", "tools", "other", "who");
+
+/*
+ *  Put sub menus as keys here and use their parents as ids.  This is used later
+ *  to prevent opening of sub menus from closing the parent menu.
+ */
+var menu_parents=new Object();
+menu_parents["justification"] = "model";
+
+
+function hideshow(id) {
+    this_box = document.getElementById(id);
+    if (this_box.style.display == "none")  {
+        this_box.style.display = "";
+    } else {
+        this_box.style.display = "none";
+    }
+	
+	for (i = 0; i <= (menu_sections.length - 1); i++){
+		if (menu_sections[i] != id && menu_sections[i] != menu_parents[id]) {
+			document.getElementById(menu_sections[i]).style.display = "none";
+		}
+	}
+
+} 
+
+function show_diagram(){
+diagram = window.open('../pp/clickable_diag.php','diagram','width=794,height=536');
+diagram.focus();
+}
+</script>
+
+
+<ul id="mainList">
+<li><a href="./CCindex.html.html">Home</a></li>
+<li><a href="./Intro.html">Introduction</a></li>
+<li><a href="#" onclick="hideshow(&#39;PleC&#39;)">Bistable Histidine Kinase</a></li>
+		<ul id="PleC" style="display:none">
+		<li><a class="" href="./PDM.html">Model</a></li>
+		<li><a class="" href="./PDR.html">Results</a></li>
+		</ul>
+<li><a href="#" onclick="hideshow(&#39;Loc&#39;)">PleC and DivL Localization</a></li>
+		<ul id="Loc" style="display:none">
+		<li><a class="" href="./DM.html">Model</a></li>
+		<li><a class="" href="./DR.html">Results</a></li>
+		</ul>
+<li><a href="http://bioinformatics.cs.vt.edu/~cmhshirl/#" onclick="hideshow(&#39;Turing&#39;)">PopZ Localization</a></li>
+		<ul id="Turing" style="display:none">
+				<li><a class="" id="WT_STSW" style="" href="./TM.html">Model</a></li>	
+		<li><a class="" id="WT_Swarmer" style="" href="./TR.html">Results</a></li>		
+		</ul>
+		
+<li><a href="http://bioinformatics.cs.vt.edu/~cmhshirl/#" onclick="hideshow(&#39;Chromosome&#39;)">Chromosome Segregation</a></li>
+		<ul id="Chromosome" style="display:">
+		<li><a id="mutant_menu_ctrA" class="" href="./CM.html">Model</a></li>
+<li><a id="mutant_menu_gcrA" class="" href="./CR.html">Results</a></li>
+		</ul>
+<li><a href="./Visualization.html">Visualization</a></li>
+<li><a href="./Contact.html">Contact</a></li>
+
+</ul>
+
+
+</div>
+</td>
+	<td id="content_cell" valign="top">
+	<div id="content">
+
+<style type="text/css">
+
+.style1 {
+	font-size: 12px;
+	font-weight: bold;
+}
+</style>
+
+<h2>Spatiotemporal Model of Chromosome Segregation in <em>Caulobacter crescentus</em></h2>
+
+<p>In recent years, ParABS-mediated chromosomal segregation has been frequently studied in the bacterium <em>Caulobacter crescentus</em> [1-6]. The <em>parS</em> locus is located 8 kb away from the origin of replication [7], which in turn is oriented towards the old (stalked) pole of the <em>Caulobacter</em> cell. The ParB protein binds specifically to the <em>parS</em> sequence forming a centromere-like complex. Chromosome replication results in two copies of the <em>parS</em>/ParB complex. While the old copy is retained at the old pole, the new centromeric complex or 'chromosome front' is translocated to the opposite pole in a matter of minutes [1,4,6]. Fluorescence microscopy experiments demonstrate that the <em>parS</em>/ParB complex follows a retracting cloud of ParA towards the new pole [1,2], suggesting that ParA participates in the segregation of the replicated bacterial chromosome (Figure 5.1).
+
+</p>
+
+<p align="center"><img "="" src="./CCGraph/61.png" width="70%"></p>
+<p class="style1" align="center"> Figure 5.1: <strong>Schematic illustration of the consensus model of chromosome segregation in <em>Caulobacter crescentus</em>. In the swarmer cell, a ParA concentration gradient (pink) extends from a maximum at the new pole to a minimum at the old pole. The <em>parS</em>/ParB chromosome front (green circles) is tethered to the single focus of PopZ (red). Once DNA replication is initiated in the stalked cell, a second copy of the <em>parS</em>/ParB chromosome front translocates behind the receding ParA structure. Concurrent with the completion of segregation in the early predivisional cell, a new focus of PopZ is formed at the new pole to tether the newly replicated chromosome front. TipN (blue circle) is localized at the new pole in the early stages of the cell cycle before being repositioned at mid-cell in the late predivisional stage.
+</strong></p>
+
+<p></p>
+
+<h2>Method</h2>
+
+
+<p>
+<strong>Spatial discretization.</strong> The proteins under investigation in this work are distributed heterogeneously along the long axis of a <em>Caulobacter</em> cell. Hence, it is sufficient to consider biochemical reactions and diffusion occurring in one spatial dimension, and to write the governing partial differential equation (PDE) for a generic chemical species C as:
+</p>
+
+<p align="center"><img "="" src="./CCGraph/3e1.png" width="35%"></p>
+
+<p><strong><em>parS</em>/ParB segregation.</strong> All variables in our differential equation model have units of concentration. There can be only one or two <em>parS</em> sequences at any given stage of the cell cycle; hence, defining <em>parS</em> in terms of a real number variable S(x,t) is not accessible to our model. Instead, we treat the chromosome sequence <em>parS</em> and the protein ParB as a single polymeric entity. Furthermore, for microscopy experiments reported in literature, ParB is tagged and used as a proxy for <em>parS</em> movement in the cell. Hence, representing the two as single entity reflects the protocol of the experimental observations we are trying to replicate in simulation.
+</p>
+
+<p align="center"><img "="" src="./CCGraph/6e1.png" width="80%"></p>
+
+<p><strong>ParA biochemical pathway.</strong> Since we desire to investigate <em>parS</em> segregation in both ParA wild-type and mutant backgrounds, a description of ParA's interactions with ParB, DNA and other ParA molecules is important. Figure 5.2 shows the biochemical reactions that form the bases for the equations in our model. The numbers of ParA molecules present in the cell are not sufficient to make up a polymer filament that is long enough to span the long axis of the <em>Caulobacter</em> cell, making it unlikely for the chromosome to be segregated by a ParA filament [4]. Hence, we do not include the ParA polymer species in or model. We desired to simulate three important ParA mutants in our model, namely (i) ParA<sub>G16V</sub>, which is a dimerization-negative mutant, (ii) ParA<sub>R195E</sub>, which is deficient in DNA binding, and (iii) ParAD44A, in which the ATPase activity is blocked. For each of these mutants, the rate constant for the corresponding reaction is set to zero.
+</p>
+
+<p align="center"><img "="" src="./CCGraph/62.png" width="70%"></p>
+<p class="style1" align="center"> Figure 5.2: <strong>Proposed ParA biochemical cycle ParA monomers (pink) can bind TipN (blue), PopZ (red), or form dimers. ParA dimers bind non- specifically to DNA. The <em>parS</em>/ParB chromosome front (green) has high affinity for DNA-bound ParA dimers. ParB up-regulates the ATPase activity of ParA, resulting in the release of ParA in the form of free monomers.
+</strong></p>
+
+<p>
+	FtsZ, TipN and MipZ localization dynamics. In our model, MipZ is present in a freely diffusing monomeric form and a <em>parS</em>-bound form that cannot diffuse. FtsZ is represented in both monomeric and polymeric forms. Polymer formation occurs by de novo and autocatalytic growth. The rate of FtsZ depolymerization is a function of total MipZ. The localization of TipN depends indirectly on FtsZ [8]. For simplicity however, we assume TipN directly binds to and co- localizes with FtsZ.
+</p>
+
+<p>
+	PopZ. In vivo, the PopZ protein assembles into polymeric aggregates that localize at the old pole in swarmer cells and later assumes bipolar distribution [9,10]. New pole localization of PopZ requires DNA replication [11] and chromosome segregation [12]. In earlier work, we formulated a model to show that PopZ localization pattern can be explained based on a Turing mechanism. Further, we proposed that slow diffusion of popZ mRNA makes it necessary for the popZ gene to be present close to both poles for bipolar PopZ localization. The current model does not include popZ genes or mRNA. In this preliminary model, we set the rate of PopZ monomer production to be dependent on the concentration of the <em>parS</em>/ParB focus. As a result, the emergence of a PopZ focus at the new pole coincides with the completion of chromosome segregation.
+</p>
+
+<h3><em>Reference</em></h3>
+<ol>
+	<li>Schofield WB, Lim HC, Jacobs-Wagner C (2010) Cell cycle coordination and regulation of bacterial chromosome segregation dynamics by polarly localized proteins. Eur Mol Biol Organ J 29: 3068-3081.</li>
+	<li>Ptacin JL, Lee SF, Garner EC, Toro E, Eckart M, et al. (2010) A spindle-like apparatus guides bacterial chromosome segregation. Nat Cell Biol 12: 791-798.</li>
+	<li>Toro E, Hong S-H, McAdams HH, Shapiro L (2008) Caulobacter requires a dedicated mechanism to initiate chromosome segregation. Proc Natl Acad Sci U S A 105: 15435-15440.</li>
+	<li>Lim HC, Surovtsev VI, Beltran BG, HUang F, Bewesdorf Jorg, et al. (2014) Evidence for a DNA-relay mechanism in ParABS-mediated chromosome segregation. Elife 3.</li>
+	<li>Ptacin JL, Gahlmann A, Bowman GR, Perez AM, von Diezmann ARS, et al. (2014) Bacterial scaffold directs pole-specific centromere segregation. Proc Natl Acad Sci U S A.</li>
+	<li>Shebelut CW, Guberman JM, Van Teeffelen S, Yakhnina AA, Gitai Z (2010) Caulobacter chromosome segregation is an ordered multistep process. Proc Natl Acad Sci U S A 107: 14194-14198.</li>
+	<li>Hong S-H, McAdams HH (2011) Compaction and transport properties of newly replicated Caulobacter crescentus DNA. Mol Microbiol 82: 1349-1358.</li>
+	<li>Yeh Y-C, Comolli LR, Downing KH, Shapiro L, McAdams HH (2010) The Caulobacter Tol- Pal complex is essential for outer membrane integrity and the positioning of a polar localization factor. J Bacteriol 192: 4847-4858.</li>
+	<li>Ebersbach G, Briegel A, Jensen GJ, Jacobs-Wagner C (2008) A self-associating protein critical for chromosome attachment, division, and polar organization in Caulobacter. Cell 134: 956-968.</li>
+	<li>Bowman GR, Comolli LR, Zhu J, Eckart M, Koenig M, et al. (2008) A polymeric protein anchors the chromosomal origin/ParB complex at a bacterial cell pole. Cell 134: 945-955.</li>
+	<li>Bowman GR, Comolli LR, Gaietta GM, Fero M, Hong S-H, et al. (2010) Caulobacter PopZ forms a polar subdomain dictating sequential changes in pole composition and function. Mol Microbiol 76: 173-189.</li>
+	<li>Laloux G, Jacobs-Wagner C (2013) Spatiotemporal control of PopZ localization through cell cycle-coupled multimerization. J Cell Biol 201: 827-841.</li>
+
+</ol>
+
+
+
+</div> <!-- end #content -->
+</td></tr>
+</tbody></table>
+
+
+<div id="FOOTER">
+<span style="float:right">Page designed Oct 6, 2014</span><span style="float:left">Site Design by <a class="credits" style="font-weight:800">  © Tyson's Lab</a></span><center><a class="credits" style="font-weight:800" href="mailto:cmhshirl@vt.edu"><img border="0" src="./CCGraph/mailto.gif"> webmaster</a></center>
+<div style="clear:both"></div>
+</div>
+</div>
+
+
+<script type="text/javascript">
+
+/***********************************************
+* http://www.dynamicdrive.com/dynamicindex5/dhtmltooltip.htm
+***********************************************/
+
+var offsetxpoint=-60 //Customize x offset of tooltip
+var offsetypoint=20 //Customize y offset of tooltip
+var ie=document.all
+var ns6=document.getElementById && !document.all
+var enabletip=false
+if (ie||ns6)
+var tipobj=document.all? document.all["dhtmltooltip"] : document.getElementById? document.getElementById("dhtmltooltip") : ""
+
+function ietruebody(){
+return (document.compatMode && document.compatMode!="BackCompat")? document.documentElement : document.body
+}
+
+function ddrivetip(thetext, thecolor, thewidth){
+if (ns6||ie){
+if (typeof thewidth!="undefined") tipobj.style.width=thewidth+"px"
+if (typeof thecolor!="undefined" && thecolor!="") tipobj.style.backgroundColor=thecolor
+tipobj.innerHTML=thetext
+enabletip=true
+return false
+}
+}
+
+function positiontip(e){
+if (enabletip){
+var curX=(ns6)?e.pageX : event.x+ietruebody().scrollLeft;
+var curY=(ns6)?e.pageY : event.y+ietruebody().scrollTop;
+//Find out how close the mouse is to the corner of the window
+var rightedge=ie&&!window.opera? ietruebody().clientWidth-event.clientX-offsetxpoint : window.innerWidth-e.clientX-offsetxpoint-20
+var bottomedge=ie&&!window.opera? ietruebody().clientHeight-event.clientY-offsetypoint : window.innerHeight-e.clientY-offsetypoint-20
+
+var leftedge=(offsetxpoint<0)? offsetxpoint*(-1) : -1000
+
+//if the horizontal distance isn't enough to accomodate the width of the context menu
+if (rightedge<tipobj.offsetWidth)
+//move the horizontal position of the menu to the left by it's width
+tipobj.style.left=ie? ietruebody().scrollLeft+event.clientX-tipobj.offsetWidth+"px" : window.pageXOffset+e.clientX-tipobj.offsetWidth+"px"
+else if (curX<leftedge)
+tipobj.style.left="5px"
+else
+//position the horizontal position of the menu where the mouse is positioned
+tipobj.style.left=curX+offsetxpoint+"px"
+
+//same concept with the vertical position
+if (bottomedge<tipobj.offsetHeight)
+tipobj.style.top=ie? ietruebody().scrollTop+event.clientY-tipobj.offsetHeight-offsetypoint+"px" : window.pageYOffset+e.clientY-tipobj.offsetHeight-offsetypoint+"px"
+else
+tipobj.style.top=curY+offsetypoint+"px"
+tipobj.style.visibility="visible"
+}
+}
+
+function hideddrivetip(){
+if (ns6||ie){
+enabletip=false
+tipobj.style.visibility="hidden"
+tipobj.style.left="-1000px"
+tipobj.style.backgroundColor=''
+tipobj.style.width=''
+}
+}
+
+document.onmousemove=positiontip
+
+</script>
+
+
+</body></html>

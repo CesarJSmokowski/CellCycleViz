@@ -1,0 +1,130 @@
+body {background-color:white; font-size:; font-family:   Arial, Helvetica, sans-serif; text-align:center;}
+table {font-size:95%}
+p {}
+
+img {border:0}
+/*
+a 			{ color: #585D75;  text-decoration: none }
+a:link      { color: #585D75; }
+a:hover     {color: white; }
+a:visited   { color: #585D75;  }*/
+
+
+#container
+{
+text-align:left;
+width: 90%;
+margin: 10px auto;
+background-color: white;
+color: #333;
+border: 1px solid #1D405E;
+}
+
+* html #container {width:950px;} /* this only visible to IE */
+
+/*--------------------TABLE STYLES-----------------------------------------------------------*/
+#side_column {width:175px; background-color: #07417F;}
+
+/*--------------------HEADER STYLES-----------------------------------------------------------*/
+#top{padding: .5em; margin:0; background: #276BA4; border-bottom: 1px solid gray;}
+#top h1 {color:white; padding: 0; margin: 0}
+h2, h3,h4, p {padding-bottom: 0; margin-bottom: 0;}
+
+/*--------------------CONTENT DIV STYLES-----------------------------------------------------------*/
+#content{
+text-align:left;
+font-size:;
+border-top: 0px solid gray;
+padding: 1.2em; /**/
+/*max-width: 40em;*/
+line-height: 145%;
+}
+
+#content h2 { margin: 0 0 .5em 0; }
+
+/*--------------------PLAIN DIV STYLES-----------------------------------------------------------*/
+#plain{
+text-align:left;
+margin-left: 20px;
+border-top: 0px solid gray;
+padding: 1.2em; /**/
+background-color: white;
+/*max-width: 40em;*/
+}
+
+/*--------------------FOOTER STYLES-----------------------------------------------------------*/
+#footer{font-size: .8em; clear: both;margin: 0;padding: .5em;color: #949292;background-color: #D1D1D1;border-top: 1px solid gray;border-bottom: 1px solid gray;}
+
+/*--------------------CREDITS STYLES-----------------------------------------------------------*/
+a.credits {color:#8A98A8; text-decoration:none}
+a.credits:hover {color:#519EF6;}
+
+/*--------------------MENU STYLES-----------------------------------------------------------*/
+#navcontainer {margin: 0; padding: 0; min-height:470px }
+* html #navcontainer {height:470px;} /* this only visible to IE */
+
+#navcontainer li {border-bottom:1px solid white}
+#navcontainer ul {margin: 0;padding-left: 0;list-style-type: none; /**/}
+#navcontainer a {display: block; padding: 4px; text-decoration: none; font-size:90%}
+* html #navcontainer a {width:100%;} /* this only visible to IE. Needed to get full roll-over effect*/
+#navcontainer a:link, #navcontainer a:visited {color: white;}
+#navcontainer a:hover{color: #fff; }
+
+#mutant a {height: 10px;}
+
+#mainList li a    {background-color: #003471; border-right: 5px solid #225DA1}
+#mainList ul a {background-color: #276BA4;text-indent:5px; border-right: 5px solid #518CBD}
+#mainList ul ul a {background-color: #7CABD3; padding:; text-indent: 10px; border-right: 5px solid #9AC3E6; font-size: 90%; } 
+
+/*----LEVEL 1-----*/
+#mainList li a:hover    {background-color: #044C9F; border-right: 5px solid #689AD5}
+/*----LEVEL 2-----*/
+#mainList ul a:hover {background-color: #61A7E0; border-right: 5px solid #B4D3EE}
+/*----LEVEL 3-----*/
+#mainList ul ul a:hover {background-color: #8BB8DF; border-right: 5px solid #D7E7F9;}
+#mutants ul a:hover { height:auto;}
+
+#mainList li a.active {color: black; background-color: white; border-right: 5px solid white; }
+#mainList a.active:link, #mainList a.active:visited {color: black;}
+
+#mainList ul a.active {color: black; background-color: white; border-right: 5px solid white; }/*#89B3D6 url(../img/admin/mailto.gif) no-repeat top left; text-indent:15px */
+/*--------------------MUTANT LEVEL 2-------------------------------------------------------*/
+#mutants_level_2 {float:right; text-align:right; font-size: 93%; padding:0; border:1px solid silver; background-color: #EFEEEE; list-style-type: none; line-height:150%; margin-left:4px;}
+#mutants_level_2 li {list-style-type: none; border:0px solid silver; padding:0px 2px}
+#mutants_level_2 li.active {background-color: white; border:1px solid black}
+#mutants_level_2 a {color:#003471; font-weight:800; font-size:90%; text-decoration:none; padding-right:3px; border-right: 0px solid #DEEBFE;}
+#mutants_level_2 a.active {color:black; padding:3px 5px 3px 5px; border-right: 0px solid #003471; border-bottom: 0px solid #003471; }
+#mutants_level_2 a:hover {border-right: 0px solid #003471; }
+#mutants_level_2_header {color:white; background-color:#003471; border:1px solid red; padding-right: 4px; text-align:center}
+
+/*--------------------MUTANT TEMPALTE PAGE STYLES-------------------------------------------------------*/
+.failed_mutant {color:red}
+.mutantItem {font-weight:600; font-style:;}
+#name {}
+#graphContainer {margin: 10px 0 15px 0}
+.reference {margin: 15px 0}
+#comments {margin: 15px 0}
+
+/*----------------------REFERENCE AND PUBLICATION STYLES --------------------------------------------*/
+.ref_spacer {}
+
+/*----------------------HIGHLIGHTING STYLES --------------------------------------------*/
+
+
+.ref_highlight {padding: 20px 20px 20px 40px; border: 1px solid silver; background-color: #F5F6B3;margin-top:0px}
+.highlight {background-color: #F5F6B3; padding:10px}
+/*----------------------REFERENCE BALLOON STYLES --------------------------------------------*/
+#dhtmltooltip{
+position: absolute;
+text-align:left;
+font-size: 75%;
+font-weight: 400;
+width: 380px;
+border: 2px solid silver;
+padding: 2px;
+background-color: #F5F6B3;
+visibility: hidden;
+z-index: 100;
+/*Remove below line to remove shadow. Below line should always appear last within this CSS
+filter: progid:DXImageTransform.Microsoft.Shadow(color=gray,direction=135);*/
+}

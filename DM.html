@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0052)http://mpf.biol.vt.edu/research/caulobacter/SWST/pp/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Spatiotemporal Model of the Asymmetric Division Cycle of <em>Caulobacter</em> cell</title>
+
+<meta name="Description" content="content=&quot;A" mathematical="" model="" of="" cell="" cycle="" control="" in="" caulobacter"="">
+<meta name="keywords" content="mathematical model Caulobacter model cell cycle control Caulobacter crescentus computational biology systems biology modeling biological network CtrA GcrA DnaA Caulobacter mutants">
+<meta name="robots" content="ALL">
+<meta name="rating" content="General">
+<link href="./css/buddingYeast.css" title="main" rel="stylesheet" type="text/css">
+<link href="./css/text_only.css" title="Text only" rel="alternate stylesheet" type="text/css">
+
+<script>
+
+
+</script>
+<style type="text/css"></style>
+
+<style type="text/css"></style></head>
+<body>
+<div id="container">
+<div id="top"><h1>Spatiotemporal Model of the Asymmetric Division Cycle of <em>Caulobacter</em> Cell</h1></div>
+<table id="column_table" width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tbody><tr>
+	<td id="side_column" valign="top">
+<div id="navcontainer">
+<script language="JavaScript">
+
+var menu_sections=new Array("intro","stats", "wildtype", "mutants2", "modelodes", "tools", "other", "who");
+
+/*
+ *  Put sub menus as keys here and use their parents as ids.  This is used later
+ *  to prevent opening of sub menus from closing the parent menu.
+ */
+var menu_parents=new Object();
+menu_parents["justification"] = "model";
+
+
+function hideshow(id) {
+    this_box = document.getElementById(id);
+    if (this_box.style.display == "none")  {
+        this_box.style.display = "";
+    } else {
+        this_box.style.display = "none";
+    }
+	
+	for (i = 0; i <= (menu_sections.length - 1); i++){
+		if (menu_sections[i] != id && menu_sections[i] != menu_parents[id]) {
+			document.getElementById(menu_sections[i]).style.display = "none";
+		}
+	}
+
+} 
+
+function show_diagram(){
+diagram = window.open('../pp/clickable_diag.php','diagram','width=794,height=536');
+diagram.focus();
+}
+</script>
+
+
+<ul id="mainList">
+<li><a href="./CCindex.html.html">Home</a></li>
+<li><a href="./Intro.html">Introduction</a></li>
+<li><a href="#" onclick="hideshow(&#39;PleC&#39;)">Bistable Histidine Kinase</a></li>
+		<ul id="PleC" style="display:none">
+		<li><a class="" href="./PDM.html">Model</a></li>
+		<li><a class="" href="./PDR.html">Results</a></li>
+		</ul>
+<li><a href="#" onclick="hideshow(&#39;Loc&#39;)">PleC and DivL Localization</a></li>
+		<ul id="Loc" style="display:">
+		<li><a class="" href="./DM.html">Model</a></li>
+		<li><a class="" href="./DR.html">Results</a></li>
+		</ul>
+<li><a href="#" onclick="hideshow(&#39;Turing&#39;)">PopZ Localization</a></li>
+		<ul id="Turing" style="display:none">
+				<li><a class="" id="WT_STSW" style="" href="./TM.html">Model</a></li>	
+		<li><a class="" id="WT_Swarmer" style="" href="./TR.html">Results</a></li>		
+		</ul>
+		
+<li><a href="#" onclick="hideshow(&#39;Chromosome&#39;)">Chromosome Segregation</a></li>
+		<ul id="Chromosome" style="display:none">
+		<li><a id="mutant_menu_ctrA" class="" href="./CM.html">Model</a></li>
+<li><a id="mutant_menu_gcrA" class="" href="./CR.html">Results</a></li>
+		</ul>
+<li><a href="./Visualization.html">Visualization</a></li>
+<li><a href="./Contact.html">Contact</a></li>
+
+</ul>
+
+
+</div>
+</td>
+	<td id="content_cell" valign="top">
+	<div id="content">
+
+<style type="text/css">
+
+.style1 {
+	font-size: 12px;
+	font-weight: bold;
+}
+</style>
+
+
+
+
+
+<h2>The conundrum of phosphorylation status of PleC and DivK in the predivisional cell</h2>
+
+<p>Progression through the <em>Caulobacter</em> cell cycle is dictated by the phosphorylation status of two proteins, DivK and CtrA. These two proteins are response regulators at the termini of two phosphotransfer modules (DivJ-PleC-DivK and DivL-CckA-CtrA) (Figure 3.1 A). PleC and CckA are bifunctional histidine- modifying enzymes that may act as either kinases or phosphatases [1,2]. Both PleC and DivJ can phosphorylate DivK, while the role of DivL is to up-regulate CckA's kinase activity [3]. (DivL is tyrosine kinase, but its kinase activity is not involved in the up-regulation of CckA [3]; how DivL promotes CckA activity is still unknown.) DivK~P binds to and inhibits DivL [4]. In a swarmer cell, DivJ is absent, PleC is a phosphatase, and DivK is unphosphorylated. Consequently, DivL is actively up-regulating CckA kinase activity [5], which in turn maintains CtrA in its phosphorylated form, thereby inhibiting DNA replication in the swarmer cell [6]. The introduction of DivJ during the swarmer-to-stalked transition enables the phosphorylation of DivK~P, triggering a pathway that culminates in the dephosphorylation of CtrA~P in stalked cells [7-9]. Therefore, at the molecular level, swarmer and stalked cells can be distinguished based on which response regulator-CtrA or DivK is phosphorylated.
+</p>
+
+<p>
+The schematic in Figure 3.1 A suggests that DivK and CtrA cannot be concurrently phosphorylated during the cell cycle. Therefore, it is surprising that both response regulators are phosphorylated in predivisional cells (Figure 3.1 B). While the level of DivK~P remains fairly constant in the stalked and predivisional stages [10], CtrA~P level changes sharply from lowest in the stalked cell stage to peak activity in the predivisional stage [2,11]. Recent experimental observations [4,5] favor a model where
+DivL is active (up-regulating CckA kinase) in the predivisional <em>Caulobacter</em> cell. Hence, DivL, inactivated by DivK~P during the swarmer-to-stalked transition, appears to be reactivated in the predivisional cell, despite the continuing presence of DivK~P. It is unclear how the inhibitory interaction between DivK~P and DivL that is required for swarmer-to-stalked transition early in the cell cycle is circumvented in the predivisional stage of the cell cycle.
+</p>
+
+<p align="center"><img "="" src="./CCGraph/31.png" width="70%"></p>
+<p class="style1" align="center"> Figure 3.1: <strong>Both DivK and CtrA are phosphorylated during the predivisional stage of the <em>Caulobacter</em> cell cycle. (A) Influence diagram of two signal transduction pathways in C. crescentus. Barbed arrows indicate activation, while the blunt-headed line indicates inhibition. (B) Spatiotemporal distributions of DivK~P (red) and CtrA~P (light blue).
+</strong></p>
+
+<h4>Contrasting models of PleC function</h4>
+
+<p>
+Of the informal models, the first (in support of PleC kinase) is necessary to explain stalk formation, while the second (in favor of PleC phosphatase) posits conditions that are to be satisfied for replicative asymmetry. While the first model lays out the evolution of PleC function during the course of the cell cycle, the second model only addresses the plausible function of PleC in the predivisional cell. Since PleC-dependent phosphorylation of PleD is required for the development of the stalk, it is fair to assume that PleC is a kinase in the stalked cell. Hence, the difference in the two models can be narrowed down to the suggested function of PleC at the new pole of the predivisional cell (Figure 3.2).
+</p>
+
+
+<p align="center"><img "="" src="./CCGraph/32.png" width="65%"></p>
+<p class="style1" align="center"> Figure 3.2: <strong>Two scenarios for the function of PleC (kinase or phosphatase) in the early predivisional (PD) cell. Spatiotemporal dynamics of PleC (green) and DivL (dark blue) during the cell cycle under these two scenarios.
+</strong></p>
+
+
+<p></p>
+
+<h2>Method</h2>
+
+
+<p>
+Our reaction-diffusion model is based on the mechanism proposed in our earlier paper [17]. The proteins under investigation show non-homogeneous distributions along the long axis of a <em>Caulobacter</em> cell; hence, we consider it sufficient to formulate the model for one spatial dimension. The governing partial differential equation (PDE) for a generic chemical species takes the form:
+</p>
+
+<p align="center"><img "="" src="./CCGraph/3e1.png" width="35%"></p>
+
+<p>
+where C(x,t) is the concentration of species C at location x and time t. The PDEs on which we base our explorations are provided in Table B.1. By discretizing the spatial dimension into n = 100 compartments of equal length h = L/n, where L is the total length of the <em>Caulobacter</em> cell and using a central difference scheme to approximate the Laplacian operator, we convert each PDE into a set of ordinary differential equations (ODEs). In our notation, C<sub>i</sub> is the concentration of species C in compartment i where
+</p>
+
+<p align="center"><img "="" src="./CCGraph/3e2.png" width="50%"></p>
+
+<p>
+A complete understanding of the mechanism behind localization of DivJ, PleC, DivL and CckA is lacking at this stage, and our model does not attempt to offer one. We enforce the localization of these four kinases based on experimentally observed distributions in wild-type and mutant cells [8,11,12,13,14]. We do this by defining rates of binding and unbinding of species C to docking proteins in compartment i as follows:
+</p>
+
+
+
+<p align="center"><img "="" src="./CCGraph/3e3.png" width="60%"></p>
+
+<p>
+where p<sub>i</sub> is an indicator function that takes the value of 1 or 0, C<sub>i</sub><sup>b</sup> is the concentration of the localized form and C<sub>i</sub><sup>f</sup>  is the concentration of the freely diffusing form of a generic protein in compartment i of the cell.
+</p>
+
+<p>
+The full set of ODEs were simulated in MATLAB using the ode15s solver [15]. The spatiotemporal distribution plots in the figures were generated using the python library Matplotlib [16]. The colors indicate the concentration gradient from zero (blue) to the maximum value of protein concentration (red) during the cell cycle. A disadvantage of such a plot is that a shallow gradient can be interpreted as significant changes in protein activity and localization. On the other hand, a very steep gradient can result in underestimation of fluctuations in protein activity and localization occurring at the lower range of concentration values. To avoid these problems and to make comparison between wild-type and mutant simulations more convenient, the color bar for each simulation indicates the concentration gradient from zero (blue) to maximum wild-type concentration C<sup>wt_max</sup> (red).
+</p>
+
+
+
+
+<h3><em>Reference</em></h3>
+<ol>
+	<li>Paul R, Jaeger T, Abel S, Wiederkehr I, Folcher M, et al. (2008) Allosteric regulation of histidine kinases by their cognate response regulator determines cell fate. Cell 133: 452- 461.</li>
+	<li>Chen YE, Tsokos CG, Biondi EG, Perchuk BS, Laub MT (2009) Dynamics of two Phosphorelays controlling cell cycle progression in Caulobacter crescentus. J Bacteriol 191: 7417-7429.</li>
+	<li>Reisinger SJ, Huntwork S, Viollier PH, Ryan KR (2007) DivL Performs Critical Cell Cycle Functions in Caulobacter crescentus Independent of Kinase Activity. J Bacteriol 189: 8308-8320.</li>
+	<li>Tsokos CG, Perchuk BS, Laub MT (2011) A dynamic complex of signaling proteins uses polar localization to regulate cell fate asymmetry in Caulobacter crescentus. Dev Cell 20: 329-341.</li>
+	<li>Chen YE, Tropini C, Jonas K, Tsokos CG, Huang KC, et al. (2011) Spatial gradient of protein phosphorylation underlies replicative asymmetry in a bacterium. Proc Natl Acad Sci U S A 108: 1052-1057.</li>
+	<li>Quon KC, Yang B, Domian IJ, Shapiro L, Marczynski GT (1998) Negative control of bacterial DNA replication by a cell cycle regulatory protein that binds at the chromosome origin. Proc Natl Acad Sci U S A 95: 120-125.</li>
+	<li>Siegal-Gaskins D, Crosson S (2008) Tightly Regulated and Heritable Division Control in Single Bacterial Cells. Biophys J 95: 2063-2072.</li>
+	<li>Radhakrishnan SK, Thanbichler M, Viollier PH (2008) The dynamic interplay between a cell fate determinant and a lysozyme homolog drives the asymmetric division cycle of Caulobacter crescentus. Genes Dev 22: 212-225.</li>
+	<li>Lin Y, Crosson S, Scherer NF (2010) Single-gene tuning of Caulobacter cell cycle period and noise, swarming motility, and surface adhesion. Mol Syst Biol 6: 445.</li>
+	<li>Jacobs C, Hung D, Shapiro L (2001) Dynamic localization of a cytoplasmic signal transduction response regulator controls morphogenesis during the Caulobacter cell cycle. Proc Natl Acad Sci U S A 98: 4095-4100.</li>
+	<li>Angelastro PS, Sliusarenko O, Jacobs-Wagner C (2010) Polar localization of the CckA histidine kinase and cell cycle periodicity of the essential master regulator CtrA in Caulobacter crescentus. J Bacteriol 192: 539-552.</li>
+	<li>Iniesta AA, Hillson NJ, Shapiro L (2010) Polar Remodeling and Histidine Kinase Activation, Which Is Essential for Caulobacter cell Cycle Progression, Are Dependent on DNA Replication Initiation. J Bacteriol 192: 3893-3902.</li>
+	<li>Lam H, Matroule J-Y, Jacobs-Wagner C (2003) The asymmetric spatial distribution of bacterial signal transduction proteins coordinates cell cycle events. Dev Cell 5: 149-159.</li>
+	<li>Wheeler RT, Shapiro L (1999) Differential localization of two histidine kinases controlling bacterial cell differentiation. Mol Cell 4: 683-694.</li>
+	<li>Shampine LF, Reichelt MW (1997) The MATLAB ODE Suite. SIAM J Sci Comput 18: 1-22.</li>
+	<li>Hunter JD (2007) Matplotlib: A 2D Graphics Environment. Comput Sci Eng 9: 90-95.</li>
+	<li>Biondi EG, Reisinger SJ, Skerker JM, Arif M, Perchuk BS, et al. (2006) Regulation of the bacterial cell cycle by an integrated genetic circuit. Nature 444: 899-904.</li>
+</ol>
+
+
+
+
+
+</div> <!-- end #content -->
+</td></tr>
+</tbody></table>
+
+
+<div id="FOOTER">
+<span style="float:right">Page designed Oct 6, 2014</span><span style="float:left">Site Design by <a class="credits" style="font-weight:800">  © Tyson's Lab</a></span><center><a class="credits" style="font-weight:800" href="mailto:cmhshirl@vt.edu"><img border="0" src="./CCGraph/mailto.gif"> webmaster</a></center>
+<div style="clear:both"></div>
+</div>
+</div>
+
+
+<script type="text/javascript">
+
+/***********************************************
+* http://www.dynamicdrive.com/dynamicindex5/dhtmltooltip.htm
+***********************************************/
+
+var offsetxpoint=-60 //Customize x offset of tooltip
+var offsetypoint=20 //Customize y offset of tooltip
+var ie=document.all
+var ns6=document.getElementById && !document.all
+var enabletip=false
+if (ie||ns6)
+var tipobj=document.all? document.all["dhtmltooltip"] : document.getElementById? document.getElementById("dhtmltooltip") : ""
+
+function ietruebody(){
+return (document.compatMode && document.compatMode!="BackCompat")? document.documentElement : document.body
+}
+
+function ddrivetip(thetext, thecolor, thewidth){
+if (ns6||ie){
+if (typeof thewidth!="undefined") tipobj.style.width=thewidth+"px"
+if (typeof thecolor!="undefined" && thecolor!="") tipobj.style.backgroundColor=thecolor
+tipobj.innerHTML=thetext
+enabletip=true
+return false
+}
+}
+
+function positiontip(e){
+if (enabletip){
+var curX=(ns6)?e.pageX : event.x+ietruebody().scrollLeft;
+var curY=(ns6)?e.pageY : event.y+ietruebody().scrollTop;
+//Find out how close the mouse is to the corner of the window
+var rightedge=ie&&!window.opera? ietruebody().clientWidth-event.clientX-offsetxpoint : window.innerWidth-e.clientX-offsetxpoint-20
+var bottomedge=ie&&!window.opera? ietruebody().clientHeight-event.clientY-offsetypoint : window.innerHeight-e.clientY-offsetypoint-20
+
+var leftedge=(offsetxpoint<0)? offsetxpoint*(-1) : -1000
+
+//if the horizontal distance isn't enough to accomodate the width of the context menu
+if (rightedge<tipobj.offsetWidth)
+//move the horizontal position of the menu to the left by it's width
+tipobj.style.left=ie? ietruebody().scrollLeft+event.clientX-tipobj.offsetWidth+"px" : window.pageXOffset+e.clientX-tipobj.offsetWidth+"px"
+else if (curX<leftedge)
+tipobj.style.left="5px"
+else
+//position the horizontal position of the menu where the mouse is positioned
+tipobj.style.left=curX+offsetxpoint+"px"
+
+//same concept with the vertical position
+if (bottomedge<tipobj.offsetHeight)
+tipobj.style.top=ie? ietruebody().scrollTop+event.clientY-tipobj.offsetHeight-offsetypoint+"px" : window.pageYOffset+e.clientY-tipobj.offsetHeight-offsetypoint+"px"
+else
+tipobj.style.top=curY+offsetypoint+"px"
+tipobj.style.visibility="visible"
+}
+}
+
+function hideddrivetip(){
+if (ns6||ie){
+enabletip=false
+tipobj.style.visibility="hidden"
+tipobj.style.left="-1000px"
+tipobj.style.backgroundColor=''
+tipobj.style.width=''
+}
+}
+
+document.onmousemove=positiontip
+
+</script>
+
+
+</body></html>
