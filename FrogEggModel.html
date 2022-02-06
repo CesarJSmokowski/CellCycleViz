@@ -1,10 +1,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <!-- saved from url=(0052)http://mpf.biol.vt.edu/research/caulobacter/SWST/pp/ -->
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Spatiotemporal Model of the Asymmetric Division Cycle of <em>Caulobacter</em> cell</title>
+<title>Frog Egg Cell Model</title>
 
-<meta name="Description" content="content=&quot;A" mathematical="" model="" of="" cell="" cycle="" control="" in="" caulobacter"="">
-<meta name="keywords" content="mathematical model Caulobacter model cell cycle control Caulobacter crescentus computational biology systems biology modeling biological network CtrA GcrA DnaA Caulobacter mutants">
+<meta name="Description" content="content=&quot;A" frog="" egg="" cell="" model"="">
+<meta name="keywords" content="frog egg mathematical model Caulobacter model cell cycle control Caulobacter crescentus computational biology systems biology modeling biological network CtrA GcrA DnaA Caulobacter mutants">
 <meta name="robots" content="ALL">
 <meta name="rating" content="General">
 <link href="./css/buddingYeast.css" title="main" rel="stylesheet" type="text/css">
@@ -21,7 +21,7 @@
 	<div id="body">
 
 <div id="container">
-<div id="top"><h1>Spatiotemporal Model of the Asymmetric Division Cycle of <em>Caulobacter</em> Cell</h1></div>
+<div id="top"><h1>Frog Egg Cell Model</h1></div>
 <table id="column_table" width="100%" border="0" cellspacing="0" cellpadding="0">
   <tbody><tr>
 	<td id="side_column" valign="top">
@@ -62,33 +62,36 @@ diagram.focus();
 
 
 <ul id="mainList">
-<li><a href="././index.html">Home</a></li>
-<li><a href="./Intro.html">Introduction</a></li>
-<li><a href="#" onclick="hideshow(&#39;PleC&#39;)">Bistable Histidine Kinase</a></li>
-		<ul id="PleC" style="display:none">
-		<li><a class="" href="./PDM.html">Model</a></li>
-		<li><a class="" href="./PDR.html">Results</a></li>
-		</ul>
-<li><a href="#" onclick="hideshow(&#39;Loc&#39;)">PleC and DivL Localization</a></li>
-		<ul id="Loc" style="display:none">
-		<li><a class="" href="./DM.html">Model</a></li>
-		<li><a class="" href="./DR.html">Results</a></li>
-		</ul>
-<li><a href="#" onclick="hideshow(&#39;Turing&#39;)">PopZ Localization</a></li>
-		<ul id="Turing" style="display:none">
-				<li><a class="" id="WT_STSW" style="" href="./TM.html">Model</a></li>	
-		<li><a class="" id="WT_Swarmer" style="" href="./TR.html">Results</a></li>		
-		</ul>
-		
-<li><a href="#" onclick="hideshow(&#39;Chromosome&#39;)">Chromosome Segregation</a></li>
-		<ul id="Chromosome" style="display:none">
-		<li><a id="mutant_menu_ctrA" class="" href="./CM.html">Model</a></li>
-<li><a id="mutant_menu_gcrA" class="" href="./CR.html">Results</a></li>
-		</ul>
-<li><a href="./Visualization.html">Visualization</a></li>
-<li><a href="./Contact.html">Contact</a></li>
-
-</ul>
+    <li><a href="././index.html">Home</a></li>
+    <li><a href="./Intro.html">Introduction</a></li>
+    <li><a href="./FrogEggModel.html">Frog Egg Model</a></li>
+    <li><a href="./BuddingYeastCell.html">Budding Yeast Cell Model</a></li>
+    <li><a href="./InterestingFacts.html">Interesting Cell Cycle Facts</a></li>
+    <li><a href="#" onclick="hideshow(&#39;PleC&#39;)">Bistable Histidine Kinase</a></li>
+        <ul id="PleC" style="display:none">
+        <li><a class="" href="./PDM.html">Model</a></li>
+        <li><a class="" href="./PDR.html">Results</a></li>
+        </ul>
+    <li><a href="#" onclick="hideshow(&#39;Loc&#39;)">PleC and DivL Localization</a></li>
+        <ul id="Loc" style="display:none">
+        <li><a class="" href="./DM.html">Model</a></li>
+        <li><a class="" href="./DR.html">Results</a></li>
+        </ul>
+    <li><a href="#" onclick="hideshow(&#39;Turing&#39;)">PopZ Localization</a></li>
+        <ul id="Turing" style="display:none">
+            <li><a class="" id="WT_STSW" style="" href="./TM.html">Model</a></li> 
+        <li><a class="" id="WT_Swarmer" style="" href="./TR.html">Results</a></li>    
+        </ul>
+        
+    <li><a href="#" onclick="hideshow(&#39;Chromosome&#39;)">Chromosome Segregation</a></li>
+        <ul id="Chromosome" style="display:none">
+        <li><a id="mutant_menu_ctrA" class="" href="./CM.html">Model</a></li>
+    <li><a id="mutant_menu_gcrA" class="" href="./CR.html">Results</a></li>
+        </ul>
+    <li><a href="./Visualization.html">Visualization</a></li>
+    <li><a href="./Contact.html">Contact</a></li>
+    
+    </ul>
 
 
 </div>
@@ -104,7 +107,7 @@ diagram.focus();
 </style>
 
 
-<h2><em>Caulobacter crescentus</em></h2>
+<h2><em>Frog Egg Cell Model</em></h2>
 
 <p><em>Caulobacter</em> is a free-living, oligotrophic bacterium that resides in aquatic environments. In order to survive on limited nutrients, it has evolved a dimorphic life cycle (Figure 1.1) [1]. Cell division gives rise to two morphologically and functionally different daughters: a sessile but replication competent 'stalked cell' that remains anchored to the substratum; and a motile but quiescent 'swarmer cell' that can disperse in search of fresh nutrients. By separating the two daughters, the bacterial population within a geographic location may be maintained below carrying capacity afforded by the low-nutrient environment. The obligate swarmer stage may also offer a competitive advantage by enabling the slow growing <em>Caulobacter</em> population to find new nutrient-rich regions before other microbial communities [2]. In response to nutritional cues, the swarmer cell ejects its flagellum, retracts the pili and grows a stalk at the site where the motility apparatus used to be present. The morphological transitions are accompanied by exit from G1-phase and entry into S-phase of the cell cycle. Later, the stalked cell undergoes a second morphological transition, as it acquires a new flagellum at the opposite pole. At this predivisional stage, one half of the cell resembles the stalked cell while the other resembles the swarmer cell. </p>
 

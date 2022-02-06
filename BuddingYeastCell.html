@@ -1,10 +1,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <!-- saved from url=(0052)http://mpf.biol.vt.edu/research/caulobacter/SWST/pp/ -->
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Spatiotemporal Model of the Asymmetric Division Cycle of <em>Caulobacter</em> cell</title>
+<title>Budding Yeast Cell Model</title>
 
-<meta name="Description" content="content=&quot;A" mathematical="" model="" of="" cell="" cycle="" control="" in="" caulobacter"="">
-<meta name="keywords" content="mathematical model Caulobacter model cell cycle control Caulobacter crescentus computational biology systems biology modeling biological network CtrA GcrA DnaA Caulobacter mutants">
+<meta name="Description" content="content=&quot;A" budding="" yeast="" cell="" model"="">
+<meta name="keywords" content="budding yeast cell mathematical model Caulobacter model cell cycle control Caulobacter crescentus computational biology systems biology modeling biological network CtrA GcrA DnaA Caulobacter mutants">
 <meta name="robots" content="ALL">
 <meta name="rating" content="General">
 <link href="./css/buddingYeast.css" title="main" rel="stylesheet" type="text/css">
@@ -18,8 +18,10 @@
 
 <style type="text/css"></style></head>
 <body>
+	<div id="body">
+
 <div id="container">
-<div id="top"><h1>Spatiotemporal Model of the Asymmetric Division Cycle of <em>Caulobacter</em> Cell</h1></div>
+<div id="top"><h1>Budding Yeast Cell Model</h1></div>
 <table id="column_table" width="100%" border="0" cellspacing="0" cellpadding="0">
   <tbody><tr>
 	<td id="side_column" valign="top">
@@ -60,7 +62,7 @@ diagram.focus();
 
 
 <ul id="mainList">
-<li><a href="././index.html.html">Home</a></li>
+<li><a href="./index.html">Home</a></li>
 <li><a href="./Intro.html">Introduction</a></li>
 <li><a href="#" onclick="hideshow(&#39;PleC&#39;)">Bistable Histidine Kinase</a></li>
 		<ul id="PleC" style="display:none">
@@ -73,7 +75,7 @@ diagram.focus();
 		<li><a class="" href="./DR.html">Results</a></li>
 		</ul>
 <li><a href="#" onclick="hideshow(&#39;Turing&#39;)">PopZ Localization</a></li>
-		<ul id="Turing" style="display:">
+		<ul id="Turing" style="display:none">
 				<li><a class="" id="WT_STSW" style="" href="./TM.html">Model</a></li>	
 		<li><a class="" id="WT_Swarmer" style="" href="./TR.html">Results</a></li>		
 		</ul>
@@ -94,6 +96,7 @@ diagram.focus();
 	<td id="content_cell" valign="top">
 	<div id="content">
 <style type="text/css">
+
 .style1 {
 	font-size: 12px;
 	font-weight: bold;
@@ -101,50 +104,41 @@ diagram.focus();
 </style>
 
 
+<h2><em>Frog Egg Cell Model</em></h2>
 
-<h3>1. Transient polar localization of a nucleating factor may generate bipolar PopZ patterns</h3>
+<p><em>Caulobacter</em> is a free-living, oligotrophic bacterium that resides in aquatic environments. In order to survive on limited nutrients, it has evolved a dimorphic life cycle (Figure 1.1) [1]. Cell division gives rise to two morphologically and functionally different daughters: a sessile but replication competent 'stalked cell' that remains anchored to the substratum; and a motile but quiescent 'swarmer cell' that can disperse in search of fresh nutrients. By separating the two daughters, the bacterial population within a geographic location may be maintained below carrying capacity afforded by the low-nutrient environment. The obligate swarmer stage may also offer a competitive advantage by enabling the slow growing <em>Caulobacter</em> population to find new nutrient-rich regions before other microbial communities [2]. In response to nutritional cues, the swarmer cell ejects its flagellum, retracts the pili and grows a stalk at the site where the motility apparatus used to be present. The morphological transitions are accompanied by exit from G1-phase and entry into S-phase of the cell cycle. Later, the stalked cell undergoes a second morphological transition, as it acquires a new flagellum at the opposite pole. At this predivisional stage, one half of the cell resembles the stalked cell while the other resembles the swarmer cell. </p>
 
-<p align="center"><img "="" src="./CCGraph/53.png" width="60%"></p>
-<p class="style1" align="center"> Figure 4.3: <strong>Presence of a nucleating factor at the poles can bias PopZ self-assembly at the poles.
-Color indicates concentration gradients from minimum (blue) to maximum (red). (A) Nucleating factor is present uniformly across the length of the cell during the cell cycle. (B) Nucleating factor is present in five compartments at each pole during the course of the cell cycle.
-</strong></p>
-
+<p align="center"><img "="" src="./CCGraph/CC_circle.png" width="50%"></p>
+<p class="style1" align="center"> Figure 1.1: <strong>Life cycle of <em>Caulobacter crescentus</em>. The motile swarmer cell contains a flagellum and pili, and it cannot undergo DNA replication (G1 phase, blue region). The stalked cell remains attached to substratum by its stalk, and undergoes active DNA replication (S phase, green region). The predivisional cell is equipped with a stalk at one end and a flagellum/pili at the other. It is preparing for cell division (G2 phase, orange region).</strong></p>
 
 
+<h3>The need for a computational model of <em>Caulobacter</em> cell Cycle regulatory network</h3>
+<p> Advances in microscopy combined with molecular biology techniques have revealed that macromolecules are localized in a non-homogeneous fashion in the cell cytoplasm, and that dynamic localization of proteins is critical for cell cycle progression and asymmetry. However, the molecular-level mechanisms that govern protein localization, and enable the cell to exploit subcellular localization towards orchestrating an asymmetric life cycle remain obscure. There are also instances of researchers using intuitive reasoning to develop very different verbal explanations of the same biological process. To provide a complementary view of the molecular mechanism controlling the asymmetric division cycle of <em>Caulobacter</em>, we have developed a mathematical model of the cell cycle regulatory network.
+</p>
 
-<h3>2. Bipolar patterns of PopZ can be generated in the absence of nucleating factors</h3>
+<p>
+	An advantage of a mathematical modeling approach is that it can be used to compare hypothetical models and establish which proposed hypothesis, if any, is better suited to explain the experimental observations. An in silico approach also allows modelers to decompose a large biochemical network into smaller sub-networks or 'modules', that can be modeled and analyzed independently. An end- point of a modeling study should also be to tease out underlying design principles that enable the cell to perform tasks in an efficient and robust fashion. A computational model that is successful in reproducing a majority of the experimental evidence can also be used to make predictions regarding the behavior of the control system under novel conditions. Hence, models can also be cross-validated by experimental tests of predictions made by the model.
+</p>
 
-<p align="center"><img "="" src="./CCGraph/55.png" width="55%"></p>
-<p class="style1" align="center"> Figure 4.4: <strong>Unipolar to bipolar transitions in PopZ localization can be realized in the absence of nucleating factors. Color indicates concentration gradients from minimum (blue) to maximum (red). (A) One division cycle (150 min). Left panel: k<sub>dnv</sub> = 1 min<sup>-1</sup>; a single PopZ focus forms at the center of the cell. Right panel: k<sub>dnv</sub> = 12 min<sup>-1</sup>; a PopZ focus forms at the old end of the cell, and a second focus forms at the new end at t = 100 min. (B) A non-dividing (filamentous) cell. Left panel: k<sub>dnv</sub> = 1 min<sup>-1</sup>; PopZ polymers undergo splitting to form a branched pattern as the cell grows. Right panel: k<sub>dnv</sub> = 1 min<sup>-1</sup>; new PopZ foci arise de novo as the cell grows.
-</strong></p>
 
-<h3>3. Localization of slow diffusing popZ mRNA suggests that bipolarity requires the presence of two popZ genes</h3>
+<h3><em>Reference</em></h3>
+<ol>
+	<li>Poindexter JS (1981) The Caulobacters: ubiquitous unusual bacteria. Microbiol Rev 45: 123-179.</li>
+	<li>Curtis PD, Brun Y V (2010) Getting in the Loop: Regulation of Development in Caulobacter crescentus. Microbiol Mol Biol Rev 74: 13-41.</li>
 
-<p align="center"><img "="" src="./CCGraph/56.png" width="70%"></p>
-<p class="style1" align="center"> Figure 4.5: <strong>Stochastic simulations show that limited dispersal of mRNA produced from a single gene results in unipolar PopZ patterns. One popZ gene is present throughout the cell cycle at a distance of 0.2&#8226;Lt from the old pole producing mRNA with a diffusion coefficient of 0.05 &mu;m<sup>2</sup>min<sup>-1</sup>. For popZ gene, color indicates presence (blue) or absence (yellow) of the gene. For popZ mRNA and PopZ protein, color indicates concentration gradients from minimum (blue) to maximum (red).
-</strong></p>
+</ol>
 
-<p align="center"><img "="" src="./CCGraph/58.png" width="70%"></p>
-<p class="style1" align="center"> Figure 4.6: <strong>Stochastic simulation of the two-gene model. (A) One popZ gene (red) is constantly present at a distance of 0.2&#8226;Lt from the old pole, while a second popZ gene (blue) is introduced at t = 50 min. The second popZ gene is translocated across the cell until it reaches a distance of 0.2&#8226;Lt from the new pole. popZ mRNA (D<sub>mRNA</sub> = 0.05 &mu;m<sup>2</sup>min<sup>-1</sup>) is produced by both genes. PopZ polymer shows a unipolar-to-bipolar transition at t = 92 min. For popZ gene, color indicates presence (blue) or absence (yellow) of the gene. For popZ mRNA and PopZ protein, color indicates concentration gradients from minimum (blue) to maximum (red). (B) Distribution of the time (left panel) and cell size (right panel) at which popZ gene segregation is completed (green bars) and PopZ becomes bipolar (red bars).
-</strong></p>
-
-<h3>4. The two-gene model of PopZ localization recreates distribution patterns observed in mutant cells</h3>
-
-<p align="center"><img "="" src="./CCGraph/59.png" width="70%"></p>
-<p class="style1" align="center"> Figure 4.7: <strong>The two-gene model can also account for observed PopZ distribution patterns in mutant cells. For popZ gene, color indicates presence (blue) or absence (yellow) of the gene. For popZ mRNA and PopZ protein, color indicates concentration gradients from minimum (blue) to maximum (red). (A) Shifting the position of a single popZ gene from the old pole to the new pole results in a corresponding shift in the polar localization of PopZ polymer (k<sub>syn-mRNA</sub> = 2 min<sup>-1</sup>, D<sub>mRNA</sub> = 0.05 &mu;m<sup>2</sup>min<sup>-1</sup>). (B) Transient bipolar localization of PopZ is observed under mild-overproduction (ksyn-mRNA = 3 min−1) and faster diffusion of mRNA (D<sub>mRNA</sub> = 0.5 &mu;m<sup>2</sup>min<sup>-1</sup>). (C) Overexpression (k<sub>syn-mRNA</sub> = 10 min<sup>-1</sup>) results in PopZ polymerizing further into the cytoplasm.
-</strong></p>
 
 </div> <!-- end #content -->
 </td></tr>
 </tbody></table>
-
 
 <div id="FOOTER">
 <span style="float:right">Page designed Oct 6, 2014</span><span style="float:left">Site Design by <a class="credits" style="font-weight:800">  © Tyson's Lab</a></span><center><a class="credits" style="font-weight:800" href="mailto:cmhshirl@vt.edu"><img border="0" src="./CCGraph/mailto.gif"> webmaster</a></center>
 <div style="clear:both"></div>
 </div>
 </div>
-
+</div>
 
 <script type="text/javascript">
 
