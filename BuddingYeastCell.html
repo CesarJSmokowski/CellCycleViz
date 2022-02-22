@@ -104,20 +104,29 @@ diagram.focus();
 </style>
 
 
-<h2><em>Frog Egg Cell Model</em></h2>
+<h2><em>Budding Yeast Cell Cycle Model</em></h2>
 
-<p><em>Caulobacter</em> is a free-living, oligotrophic bacterium that resides in aquatic environments. In order to survive on limited nutrients, it has evolved a dimorphic life cycle (Figure 1.1) [1]. Cell division gives rise to two morphologically and functionally different daughters: a sessile but replication competent 'stalked cell' that remains anchored to the substratum; and a motile but quiescent 'swarmer cell' that can disperse in search of fresh nutrients. By separating the two daughters, the bacterial population within a geographic location may be maintained below carrying capacity afforded by the low-nutrient environment. The obligate swarmer stage may also offer a competitive advantage by enabling the slow growing <em>Caulobacter</em> population to find new nutrient-rich regions before other microbial communities [2]. In response to nutritional cues, the swarmer cell ejects its flagellum, retracts the pili and grows a stalk at the site where the motility apparatus used to be present. The morphological transitions are accompanied by exit from G1-phase and entry into S-phase of the cell cycle. Later, the stalked cell undergoes a second morphological transition, as it acquires a new flagellum at the opposite pole. At this predivisional stage, one half of the cell resembles the stalked cell while the other resembles the swarmer cell. </p>
+<p><em>Saccharomyces cerevisiae</em> also known as budding yeast is a species of yeast which is single-celled fungus microorganisms. They require a reduced carbon source to fulfill their simple nutritional needs such as acetate since they can not undergo photosynthesis. Yeast also requires a nitrogen source and can use a variety of organic nitrogen compounds to fulfill their need for nitrogen. Additionally, the only other complex compound they need are biotin, at type of vitamin. And they also need a variety of salts and trace elements. Another characteristic of yeast is that they divide by budding rather than by binary fission, and during budding, a small bud emerges from the surface of the parent cell until it is almost as large as the parent cell before break off.  
+<p align="center"><img "="" src="./buddingyeast.jpg" width="30%"></p>
+<p class="style1" align="center"> Figure 1: <strong>A scanning electron microscope image of <em>Saccharomyces Cerevisiae</em>.</strong></p>
 
-<p align="center"><img "="" src="./CCGraph/CC_circle.png" width="50%"></p>
-<p class="style1" align="center"> Figure 1.1: <strong>Life cycle of <em>Caulobacter crescentus</em>. The motile swarmer cell contains a flagellum and pili, and it cannot undergo DNA replication (G1 phase, blue region). The stalked cell remains attached to substratum by its stalk, and undergoes active DNA replication (S phase, green region). The predivisional cell is equipped with a stalk at one end and a flagellum/pili at the other. It is preparing for cell division (G2 phase, orange region).</strong></p>
 
-
-<h3>The need for a computational model of <em>Caulobacter</em> cell Cycle regulatory network</h3>
-<p> Advances in microscopy combined with molecular biology techniques have revealed that macromolecules are localized in a non-homogeneous fashion in the cell cytoplasm, and that dynamic localization of proteins is critical for cell cycle progression and asymmetry. However, the molecular-level mechanisms that govern protein localization, and enable the cell to exploit subcellular localization towards orchestrating an asymmetric life cycle remain obscure. There are also instances of researchers using intuitive reasoning to develop very different verbal explanations of the same biological process. To provide a complementary view of the molecular mechanism controlling the asymmetric division cycle of <em>Caulobacter</em>, we have developed a mathematical model of the cell cycle regulatory network.
+<h3>Cell cycle of <em>Saccharomyces Cerevisiae / Budding Yeast</em> </h3>
+<p> Saccharomyces cerevisiae is also known as budding yeast because of its unusual style of asymmetric division into a large mother cell and a small daughter cell. After G1 period (cell growth), the budding yeast cell initiates a new bud at about the same time that it enters S phase (DNA synthesis). Also, at this time, the yeast cell replicates its spindle pole bodies and begins preparations for mitosis. These simultaneous events of the budding yeast cell cycle are referred to as Start. The bud first emerges from the cell in a burst of polarized growth but quickly switches to isotropic growth, to form an expanding spherical protrusion. Most of the net cell growth after this time goes into the bud. After DNA synthesis is finished, an intranuclear mitotic spindle is built and the replicated chromosomes are aligned at the metaphase plate. Simultaneously, during the G2 (cell growth and preparations for mitosis) and M (mitosis) the nucleus migrates to the neck between the mother and bud compartments in order to orients itself with one pole of the mitotic spindle in the mother cell and the other pole in the bud. During anaphase, the replicated chromosomes are partitioned into two groups: one group is pushed into the mother cell and the other into the bud. The stretched nucleus divides in two, and the cell separates at the bud neck to produce mother and daughter cells. The daughter cell generally has a considerably longer G1 period than the mother cell. It must grow to a certain threshold size before it can initiate a new round of budding, DNA replication, and division.
 </p>
 
+<h3>Major Checkpoints During the Cell Cycle</h3>
 <p>
-	An advantage of a mathematical modeling approach is that it can be used to compare hypothetical models and establish which proposed hypothesis, if any, is better suited to explain the experimental observations. An in silico approach also allows modelers to decompose a large biochemical network into smaller sub-networks or 'modules', that can be modeled and analyzed independently. An end- point of a modeling study should also be to tease out underlying design principles that enable the cell to perform tasks in an efficient and robust fashion. A computational model that is successful in reproducing a majority of the experimental evidence can also be used to make predictions regarding the behavior of the control system under novel conditions. Hence, models can also be cross-validated by experimental tests of predictions made by the model.
+	When yeast cell progresses through the cell cycle, it halts at two major checkpoints:
+</p>
+<p>
+	G1 checkpoint:  If DNA damage is detected, mating pheromone is present, or the cell has not reached the critical size, the cell arrests in G1 and is unable to undergo the Start transition which commits the cell to a new round of DNA synthesis and mitosis.
+</p>
+<p>
+	Spindle assembly checkpoint:  If DNA damage is detected, DNA is not replicated completely, or chromosomes are not aligned on the metaphase plate, the cell arrests in metaphase and is unable to undergo the Finish transition, whereby sister chromatids are separated and the cell divides.
+</p>
+<p>
+These checkpoints are enforced by the Cdk/cyclin complexes, a family of protein kinases.
 </p>
 
 
