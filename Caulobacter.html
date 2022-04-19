@@ -1,0 +1,215 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0052)http://mpf.biol.vt.edu/research/caulobacter/SWST/pp/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Spatiotemporal Model of the Asymmetric Division Cycle of <em>Caulobacter</em> cell</title>
+
+<meta name="Description" content="content=&quot;A" mathematical="" model="" of="" cell="" cycle="" control="" in="" caulobacter"="">
+<meta name="keywords" content="mathematical model Caulobacter model cell cycle control Caulobacter crescentus computational biology systems biology modeling biological network CtrA GcrA DnaA Caulobacter mutants">
+<meta name="robots" content="ALL">
+<meta name="rating" content="General">
+<link href="./css/buddingYeast.css" title="main" rel="stylesheet" type="text/css">
+<link href="./css/text_only.css" title="Text only" rel="alternate stylesheet" type="text/css">
+
+<script>
+
+
+</script>
+<style type="text/css"></style>
+
+<style type="text/css"></style></head>
+<body>
+	<div id="body">
+
+<div id="container">
+<div id="top"><h1><em>Caulobacter</em> Cell Cycle Model</h1></div>
+<table id="column_table" width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tbody><tr>
+	<td id="side_column" valign="top">
+<div id="navcontainer">
+<script language="JavaScript">
+
+var menu_sections=new Array("intro","stats", "wildtype", "mutants2", "modelodes", "tools", "other", "who");
+
+/*
+ *  Put sub menus as keys here and use their parents as ids.  This is used later
+ *  to prevent opening of sub menus from closing the parent menu.
+ */
+var menu_parents=new Object();
+menu_parents["justification"] = "model";
+
+
+function hideshow(id) {
+    this_box = document.getElementById(id);
+    if (this_box.style.display == "none")  {
+        this_box.style.display = "";
+    } else {
+        this_box.style.display = "none";
+    }
+	
+	for (i = 0; i <= (menu_sections.length - 1); i++){
+		if (menu_sections[i] != id && menu_sections[i] != menu_parents[id]) {
+			document.getElementById(menu_sections[i]).style.display = "none";
+		}
+	}
+
+} 
+
+function show_diagram(){
+diagram = window.open('../pp/clickable_diag.php','diagram','width=794,height=536');
+diagram.focus();
+}
+</script>
+
+
+<ul id="mainList">
+<li><a href="././index.html">Home</a></li>
+<li><a href="./Intro.html">Introduction</a></li>
+<li><a href="#" onclick="hideshow(&#39;PleC&#39;)">Bistable Histidine Kinase</a></li>
+		<ul id="PleC" style="display:none">
+		<li><a class="" href="./PDM.html">Model</a></li>
+		<li><a class="" href="./PDR.html">Results</a></li>
+		</ul>
+<li><a href="#" onclick="hideshow(&#39;Loc&#39;)">PleC and DivL Localization</a></li>
+		<ul id="Loc" style="display:none">
+		<li><a class="" href="./DM.html">Model</a></li>
+		<li><a class="" href="./DR.html">Results</a></li>
+		</ul>
+<li><a href="#" onclick="hideshow(&#39;Turing&#39;)">PopZ Localization</a></li>
+		<ul id="Turing" style="display:none">
+				<li><a class="" id="WT_STSW" style="" href="./TM.html">Model</a></li>	
+		<li><a class="" id="WT_Swarmer" style="" href="./TR.html">Results</a></li>		
+		</ul>
+		
+<li><a href="#" onclick="hideshow(&#39;Chromosome&#39;)">Chromosome Segregation</a></li>
+		<ul id="Chromosome" style="display:none">
+		<li><a id="mutant_menu_ctrA" class="" href="./CM.html">Model</a></li>
+<li><a id="mutant_menu_gcrA" class="" href="./CR.html">Results</a></li>
+		</ul>
+<li><a href="./Visualization.html">Visualization</a></li>
+<li><a href="./Contact.html">Contact</a></li>
+
+</ul>
+
+
+</div>
+</td>
+	<td id="content_cell" valign="top">
+	<div id="content">
+<style type="text/css">
+
+.style1 {
+	font-size: 12px;
+	font-weight: bold;
+}
+</style>
+
+
+<h2><em>Caulobacter Crescentus</em></h2>
+
+<p><em>Caulobacter Crescentus</em> is a free-living bacterium that resides in aquatic environments that can only offer very low level of nutrients. In order to survive on limited nutrients, it has evolved a dimorphic life cycle (Figure 1.1) [1]. Cell division gives rise to two structurally and functionally different daughters: an immobile but replication competent 'stalked cell' that remains anchored to some surfaces; and a mobile but quiescent (reversible state of a cell in which it does not divide but retains the ability to re-enter cell proliferation) 'swarmer cell' that can disperse in search of fresh nutrients. By separating the two daughters, the bacterial population within a geographic location may be maintained below the carrying capacity afforded by the low-nutrient environment. The swarmer stage of Caulobacter cell may also offer a competitive advantage by enabling the slow growing <em>Caulobacter</em> population to find new nutrient-rich regions before other microbial communities [2]. In response to nutritional cues in the environment, the swarmer cell will eject its flagellum, retract the pili and grow a stalk at the site where its motility apparatus used to be present. The morphological transitions are accompanied by exit from G1-phase and entry into S-phase of the cell cycle. Later, the stalked cell undergoes a second morphological transition, as it acquires a new flagellum at the opposite pole. At this predivisional stage, one half of the cell resembles the stalked cell while the other resembles the swarmer cell. </p>
+
+<p align="center"><img "="" src="./CCGraph/CC_circle.png" width="50%"></p>
+<p class="style1" align="center"> Figure 1.1: <strong>Life cycle of <em>Caulobacter crescentus</em>. The motile swarmer cell contains a flagellum and pili, and it cannot undergo DNA replication (G1 phase, blue region). The stalked cell remains attached to substratum by its stalk, and undergoes active DNA replication (S phase, green region). The predivisional cell is equipped with a stalk at one end and a flagellum/pili at the other. It is preparing for cell division (G2 phase, orange region).</strong></p>
+
+
+<h3>The need for a computational model of <em>Caulobacter</em> cell Cycle regulatory network</h3>
+<p> Advances in microscopy combined with molecular biology techniques have revealed that macromolecules are localized in a non-homogeneous fashion in the cell cytoplasm, and that dynamic localization of proteins is critical for cell cycle progression and asymmetry. However, the molecular-level mechanisms that govern protein localization, and enable the cell to exploit subcellular localization towards orchestrating an asymmetric life cycle remain obscure. There are also instances of researchers using intuitive reasoning to develop very different verbal explanations of the same biological process. To provide a complementary view of the molecular mechanism controlling the asymmetric division cycle of <em>Caulobacter</em>, we have developed a mathematical model of the cell cycle regulatory network.
+</p>
+
+<p>
+	An advantage of a mathematical modeling approach is that it can be used to compare hypothetical models and establish which proposed hypothesis, if any, is better suited to explain the experimental observations. An in silico approach also allows modelers to decompose a large biochemical network into smaller sub-networks or 'modules', that can be modeled and analyzed independently. An end- point of a modeling study should also be to tease out underlying design principles that enable the cell to perform tasks in an efficient and robust fashion. A computational model that is successful in reproducing a majority of the experimental evidence can also be used to make predictions regarding the behavior of the control system under novel conditions. Hence, models can also be cross-validated by experimental tests of predictions made by the model.
+</p>
+
+
+<h3><em>Reference</em></h3>
+<ol>
+	<li>Poindexter JS (1981) The Caulobacters: ubiquitous unusual bacteria. Microbiol Rev 45: 123-179.</li>
+	<li>Curtis PD, Brun Y V (2010) Getting in the Loop: Regulation of Development in Caulobacter crescentus. Microbiol Mol Biol Rev 74: 13-41.</li>
+
+</ol>
+
+
+</div> <!-- end #content -->
+</td></tr>
+</tbody></table>
+
+<div id="FOOTER">
+<span style="float:right">Page designed Oct 6, 2014</span><span style="float:left">Site Design by <a class="credits" style="font-weight:800">  © Tyson's Lab</a></span><center><a class="credits" style="font-weight:800" href="mailto:cmhshirl@vt.edu"><img border="0" src="./CCGraph/mailto.gif"> webmaster</a></center>
+<div style="clear:both"></div>
+</div>
+</div>
+</div>
+
+<script type="text/javascript">
+
+/***********************************************
+* http://www.dynamicdrive.com/dynamicindex5/dhtmltooltip.htm
+***********************************************/
+
+var offsetxpoint=-60 //Customize x offset of tooltip
+var offsetypoint=20 //Customize y offset of tooltip
+var ie=document.all
+var ns6=document.getElementById && !document.all
+var enabletip=false
+if (ie||ns6)
+var tipobj=document.all? document.all["dhtmltooltip"] : document.getElementById? document.getElementById("dhtmltooltip") : ""
+
+function ietruebody(){
+return (document.compatMode && document.compatMode!="BackCompat")? document.documentElement : document.body
+}
+
+function ddrivetip(thetext, thecolor, thewidth){
+if (ns6||ie){
+if (typeof thewidth!="undefined") tipobj.style.width=thewidth+"px"
+if (typeof thecolor!="undefined" && thecolor!="") tipobj.style.backgroundColor=thecolor
+tipobj.innerHTML=thetext
+enabletip=true
+return false
+}
+}
+
+function positiontip(e){
+if (enabletip){
+var curX=(ns6)?e.pageX : event.x+ietruebody().scrollLeft;
+var curY=(ns6)?e.pageY : event.y+ietruebody().scrollTop;
+//Find out how close the mouse is to the corner of the window
+var rightedge=ie&&!window.opera? ietruebody().clientWidth-event.clientX-offsetxpoint : window.innerWidth-e.clientX-offsetxpoint-20
+var bottomedge=ie&&!window.opera? ietruebody().clientHeight-event.clientY-offsetypoint : window.innerHeight-e.clientY-offsetypoint-20
+
+var leftedge=(offsetxpoint<0)? offsetxpoint*(-1) : -1000
+
+//if the horizontal distance isn't enough to accomodate the width of the context menu
+if (rightedge<tipobj.offsetWidth)
+//move the horizontal position of the menu to the left by it's width
+tipobj.style.left=ie? ietruebody().scrollLeft+event.clientX-tipobj.offsetWidth+"px" : window.pageXOffset+e.clientX-tipobj.offsetWidth+"px"
+else if (curX<leftedge)
+tipobj.style.left="5px"
+else
+//position the horizontal position of the menu where the mouse is positioned
+tipobj.style.left=curX+offsetxpoint+"px"
+
+//same concept with the vertical position
+if (bottomedge<tipobj.offsetHeight)
+tipobj.style.top=ie? ietruebody().scrollTop+event.clientY-tipobj.offsetHeight-offsetypoint+"px" : window.pageYOffset+e.clientY-tipobj.offsetHeight-offsetypoint+"px"
+else
+tipobj.style.top=curY+offsetypoint+"px"
+tipobj.style.visibility="visible"
+}
+}
+
+function hideddrivetip(){
+if (ns6||ie){
+enabletip=false
+tipobj.style.visibility="hidden"
+tipobj.style.left="-1000px"
+tipobj.style.backgroundColor=''
+tipobj.style.width=''
+}
+}
+
+document.onmousemove=positiontip
+
+</script>
+
+
+</body></html>
