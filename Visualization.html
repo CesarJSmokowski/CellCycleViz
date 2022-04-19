@@ -3,7 +3,7 @@
 
 <html><head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Discover the Cell Cycle</title>
+<title>Spatiotemporal Model of the Asymmetric Division Cycle of <em>Caulobacter</em> cell</title>
 <script type="text/javascript" src="./d3/d3.js"> </script>
     <script type="text/javascript" src="./CCData/PleC_population.js"> </script>
     <script type="text/javascript" src="./CCData/PopZ_population.js"> </script>
@@ -36,7 +36,7 @@
 <style type="text/css"></style></head>
 <body>
 <div id="container">
-<div id="top"><h1 style="text-align:center">Discovering the Cell Cycle</h1></div>
+<div id="top"><h1>Spatiotemporal Model of the Asymmetric Division Cycle of <em>Caulobacter</em> Cell</h1></div>
 <table id="column_table" width="100%" border="0" cellspacing="0" cellpadding="0">
   <tbody><tr>
   <td id="side_column" valign="top">
@@ -77,35 +77,29 @@ diagram.focus();
 
 
 <ul id="mainList">
-<li><a href="././index.html">Home</a></li>
+<li><a href="./CCindex.html">Home</a></li>
 <li><a href="./Intro.html">Introduction</a></li>
-<li><a href="#" onclick="hideshow(&#39;CellGrowth&#39;)">Cell Growth Models</a></li>
-  <ul id="CellGrowth" style="display:none">
-  <li><a class="" href="./FrogEggModel.html">Frog Egg Model</a></li>
-  <li><a class="" href="./BuddingYeastCell.html">Budding Yeast Cell Model</a></li>
-  </ul>
 <li><a href="#" onclick="hideshow(&#39;PleC&#39;)">Bistable Histidine Kinase</a></li>
-  <ul id="PleC" style="display:none">
-  <li><a class="" href="./PDM.html">Model</a></li>
-  <li><a class="" href="./PDR.html">Results</a></li>
-  </ul>
+    <ul id="PleC" style="display:none">
+    <li><a class="" href="./PDM.html">Model</a></li>
+    <li><a class="" href="./PDR.html">Results</a></li>
+    </ul>
 <li><a href="#" onclick="hideshow(&#39;Loc&#39;)">PleC and DivL Localization</a></li>
-  <ul id="Loc" style="display:none">
-  <li><a class="" href="./DM.html">Model</a></li>
-  <li><a class="" href="./DR.html">Results</a></li>
-  </ul>
+    <ul id="Loc" style="display:none">
+    <li><a class="" href="./DM.html">Model</a></li>
+    <li><a class="" href="./DR.html">Results</a></li>
+    </ul>
 <li><a href="#" onclick="hideshow(&#39;Turing&#39;)">PopZ Localization</a></li>
-  <ul id="Turing" style="display:none">
-    <li><a class="" id="WT_STSW" style="" href="./TM.html">Model</a></li> 
-  <li><a class="" id="WT_Swarmer" style="" href="./TR.html">Results</a></li>    
-  </ul>
-  
+    <ul id="Turing" style="display:none">
+        <li><a class="" id="WT_STSW" style="" href="./TM.html">Model</a></li> 
+    <li><a class="" id="WT_Swarmer" style="" href="./TR.html">Results</a></li>    
+    </ul>
+    
 <li><a href="#" onclick="hideshow(&#39;Chromosome&#39;)">Chromosome Segregation</a></li>
-  <ul id="Chromosome" style="display:none">
-  <li><a id="mutant_menu_ctrA" class="" href="./CM.html">Model</a></li>
+    <ul id="Chromosome" style="display:none">
+    <li><a id="mutant_menu_ctrA" class="" href="./CM.html">Model</a></li>
 <li><a id="mutant_menu_gcrA" class="" href="./CR.html">Results</a></li>
-  </ul>
-<li><a href="./InterestingFacts.html">Interesting Cell Cycle Facts</a></li>
+    </ul>
 <li><a href="./Visualization.html">Visualization</a></li>
 <li><a href="./Contact.html">Contact</a></li>
 
@@ -123,45 +117,6 @@ diagram.focus();
   font-weight: bold;
 }
 </style>
-
-<div id="What_Is_The_Cell_Cycle"><h1>What is the Cell Cycle?<b></b></h1></div>
-<div id="body1"><p>Living organisms are constantly making new cells. New cells are created to help an organism grow and to replace old dead cells. The process by which new cells are made is called cell division. Cell division is constantly happening and around two trillion cell divisions take place in the average human body every day! <a href="https://www.ducksters.com/science/biology/cell_division.php">(read more about cell division)</a></p></div>
-<div id="body1"><p>The cell cycle is a series of changes a cell goes through as it grows and divides. At the end of the cell cycle, the cell divides into two identical "daughter" cells. Depending on what type of organism the cell belongs to, there are three main types of cell division.</p></div>
-&nbsp;
-<div id="Types of Cell Division"><h1><b>3 Types of Cell Division</b></h1></div>
-<h2 style="  margin-bottom: 0px;"> <!--Choose wanted number-->
-  Binary Fission
-</h2>
-<div id="Binary fission body"><p>Binary fission is an example of asexual reproduction and is a process used by simple organisms like bacteria. The first step in this process is the cell grows to twice it's normal size and creates an identical copy of it's DNA. Once the two strands of DNA move to opposite ends of the cell, the cell wall squeezes the middle of the cell, splitting it into two identical, separate cells.</p></div>
-<figure>
-  <IMG src="binary_fission_gif.gif" alt="Binary Fission Gif" style="width:50%">
-  <figcaption>Figure 1 - Binary Fission Animation.</figcaption>
-</figure>
-
-<h2>Mitosis</h2>
-<p style="  margin-bottom: 10px;">While simple organisms like bacteria use binary fission to duplicate, more complex organisms multiply using either mitosis or meiosis. Mitosis is an essential process for life. Cells that make up skin, blood and muscles in the human body use mitosis to create new cells that are exact replicates of the original cell. During mitosis, a cell duplicates all of its contents, including it's DNA strand, and splits into two identical daughter cells. Since Mitosis is such an important process for the body to grow and survive, the mitosis process is carefully controlled by certain genes in the cell. If the steps of mitosis are not regulated, then serious health problems such as cancer can occur.</p>
-<figure>
-  <IMG src="stages-of-mitosis-gif.gif" alt="Stages of Mitosis Gif" style="width:50%">
-  <figcaption>Figure 2 - Stages of Mitosis Animation.</figcaption>
-</figure>
-&nbsp; &nbsp;
-<h2>Meiosis</h2>
-<p style="  margin-bottom: 10px;">The other type of cell divion used by more complex cells is meiosis, which creates new reproductive or sex cells. Sex cells include egg cells for women and sperm cells for men, which both contain half the genetic material (DNA) needed to create a fetus. Body cells are known as diploids, because they have two sets of chromosones, one from each parent. During meiosis one cell duplicates it's chromosones then divides twice to form four daughter cells. Each of the four daughter cells have half the number of chromosones of the parent cell, since the parent cell doubled it's number of chromosones and distributed them evenly amongst the daughter cells.</p>
-<figure>
-  <IMG src="stages_of_meiosis_chart.png" alt="Stages of Meiosis Chart" style="width:50%">
-  <figcaption>Figure 3 - Stages of Meiosis Chart.</figcaption>
-</figure>
-&nbsp;
-<div id="Why is it Important to Study the Cell Cycle?"><h1><b>Why is it Important to Study the Cell Cycle?</b></h1></div>
-<p>Studying the cell cycle and how new cells are created is incredibly relevant to the <b>health, well-being and bology of all organisms</b>. We have a much stronger understanding of diseases and injury recovery thanks to the work done by scientists who study the growth of cells. The cell cycle and cell division is the engine that powers the growth of all organisms. Microbiology, which is the study of all living organisms that are too small to be naked eye <a href="https://microbiologysociety.org/why-microbiology-matters/what-is-microbiology.html">(Learn about Microbiology)</a>, will be a crucial role in the next wave of scientific breakthroughs related to animal and plant health.</p>
-<p>Some of the areas where cell division research plays a significant role include:</p>
-<ol>
-  <li>Cancer Research: </li>
-  <li>Stem Cell Treatment: </li>
-  <li>Alzheimers Research: </li>
-  <li>Immunology and The Spread of Diseases: </li>
-
-</ol>
 
 <div id="draw">
 <h2><em>Caulobacter</em> cell Division Visualization</h2>
@@ -240,13 +195,7 @@ diagram.focus();
 
 </div>
 
-<h3><em>Reference</em></h3>
-<ol>
-	<li>“What Is Mitosis?” Facts, The Public Engagement Team at the Wellcome Genome Campus, 21 July 2021, https://www.yourgenome.org/facts/what-is-mitosis. </li>
-	<li>McIntosh, J. Richard, and Michael P. Koonce. “Mitosis.” Science.org, 3 Nov. 1989, https://www.science.org/doi/abs/10.1126/science.2683078. </li>
-  <li>Nurse, Paul, et al. “Understanding the Cell Cycle.” Nature Medicine, vol. 4, no. 10, 1998, pp. 1103–1106., https://doi.org/10.1038/2594. </li>
 
-</ol>
 
 
 

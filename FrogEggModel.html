@@ -21,7 +21,7 @@
 	<div id="body">
 
 <div id="container">
-<div id="top"><h1>Frog Egg Cell Model</h1></div>
+<div id="top"><h1 style="text-align:center">Frog Egg Cell Model</h1></div>
 <table id="column_table" width="100%" border="0" cellspacing="0" cellpadding="0">
   <tbody><tr>
 	<td id="side_column" valign="top">
@@ -62,36 +62,39 @@ diagram.focus();
 
 
 <ul id="mainList">
-    <li><a href="././index.html">Home</a></li>
-    <li><a href="./Intro.html">Introduction</a></li>
-    <li><a href="./FrogEggModel.html">Frog Egg Model</a></li>
-    <li><a href="./BuddingYeastCell.html">Budding Yeast Cell Model</a></li>
-    <li><a href="./InterestingFacts.html">Interesting Cell Cycle Facts</a></li>
-    <li><a href="#" onclick="hideshow(&#39;PleC&#39;)">Bistable Histidine Kinase</a></li>
-        <ul id="PleC" style="display:none">
-        <li><a class="" href="./PDM.html">Model</a></li>
-        <li><a class="" href="./PDR.html">Results</a></li>
-        </ul>
-    <li><a href="#" onclick="hideshow(&#39;Loc&#39;)">PleC and DivL Localization</a></li>
-        <ul id="Loc" style="display:none">
-        <li><a class="" href="./DM.html">Model</a></li>
-        <li><a class="" href="./DR.html">Results</a></li>
-        </ul>
-    <li><a href="#" onclick="hideshow(&#39;Turing&#39;)">PopZ Localization</a></li>
-        <ul id="Turing" style="display:none">
-            <li><a class="" id="WT_STSW" style="" href="./TM.html">Model</a></li> 
-        <li><a class="" id="WT_Swarmer" style="" href="./TR.html">Results</a></li>    
-        </ul>
-        
-    <li><a href="#" onclick="hideshow(&#39;Chromosome&#39;)">Chromosome Segregation</a></li>
-        <ul id="Chromosome" style="display:none">
-        <li><a id="mutant_menu_ctrA" class="" href="./CM.html">Model</a></li>
-    <li><a id="mutant_menu_gcrA" class="" href="./CR.html">Results</a></li>
-        </ul>
-    <li><a href="./Visualization.html">Visualization</a></li>
-    <li><a href="./Contact.html">Contact</a></li>
-    
+<li><a href="././index.html">Home</a></li>
+<li><a href="./Intro.html">Introduction</a></li>
+<li><a href="#" onclick="hideshow(&#39;PleC&#39;)">Cell Growth Models</a></li>
+    <ul id="PleC" style="display:none">
+    <li><a class="" href="./FrogEggModel.html">Frog Egg Model</a></li>
+    <li><a class="" href="./BuddingYeastCell.html">Budding Yeast Cell Model</a></li>
     </ul>
+<li><a href="#" onclick="hideshow(&#39;PleC&#39;)">Bistable Histidine Kinase</a></li>
+    <ul id="PleC" style="display:none">
+    <li><a class="" href="./PDM.html">Model</a></li>
+    <li><a class="" href="./PDR.html">Results</a></li>
+    </ul>
+<li><a href="#" onclick="hideshow(&#39;Loc&#39;)">PleC and DivL Localization</a></li>
+    <ul id="Loc" style="display:none">
+    <li><a class="" href="./DM.html">Model</a></li>
+    <li><a class="" href="./DR.html">Results</a></li>
+    </ul>
+<li><a href="#" onclick="hideshow(&#39;Turing&#39;)">PopZ Localization</a></li>
+    <ul id="Turing" style="display:none">
+        <li><a class="" id="WT_STSW" style="" href="./TM.html">Model</a></li> 
+    <li><a class="" id="WT_Swarmer" style="" href="./TR.html">Results</a></li>    
+    </ul>
+    
+<li><a href="#" onclick="hideshow(&#39;Chromosome&#39;)">Chromosome Segregation</a></li>
+    <ul id="Chromosome" style="display:none">
+    <li><a id="mutant_menu_ctrA" class="" href="./CM.html">Model</a></li>
+<li><a id="mutant_menu_gcrA" class="" href="./CR.html">Results</a></li>
+    </ul>
+<li><a href="./InterestingFacts.html">Interesting Cell Cycle Facts</a></li>
+<li><a href="./Visualization.html">Visualization</a></li>
+<li><a href="./Contact.html">Contact</a></li>
+
+</ul>
 
 
 </div>
@@ -108,29 +111,49 @@ diagram.focus();
 
 
 <h2><em>Frog Egg Cell Model</em></h2>
-
-<p><em>Caulobacter</em> is a free-living, oligotrophic bacterium that resides in aquatic environments. In order to survive on limited nutrients, it has evolved a dimorphic life cycle (Figure 1.1) [1]. Cell division gives rise to two morphologically and functionally different daughters: a sessile but replication competent 'stalked cell' that remains anchored to the substratum; and a motile but quiescent 'swarmer cell' that can disperse in search of fresh nutrients. By separating the two daughters, the bacterial population within a geographic location may be maintained below carrying capacity afforded by the low-nutrient environment. The obligate swarmer stage may also offer a competitive advantage by enabling the slow growing <em>Caulobacter</em> population to find new nutrient-rich regions before other microbial communities [2]. In response to nutritional cues, the swarmer cell ejects its flagellum, retracts the pili and grows a stalk at the site where the motility apparatus used to be present. The morphological transitions are accompanied by exit from G1-phase and entry into S-phase of the cell cycle. Later, the stalked cell undergoes a second morphological transition, as it acquires a new flagellum at the opposite pole. At this predivisional stage, one half of the cell resembles the stalked cell while the other resembles the swarmer cell. </p>
-
-<p align="center"><img "="" src="./CCGraph/CC_circle.png" width="50%"></p>
-<p class="style1" align="center"> Figure 1.1: <strong>Life cycle of <em>Caulobacter crescentus</em>. The motile swarmer cell contains a flagellum and pili, and it cannot undergo DNA replication (G1 phase, blue region). The stalked cell remains attached to substratum by its stalk, and undergoes active DNA replication (S phase, green region). The predivisional cell is equipped with a stalk at one end and a flagellum/pili at the other. It is preparing for cell division (G2 phase, orange region).</strong></p>
-
-
-<h3>The need for a computational model of <em>Caulobacter</em> cell Cycle regulatory network</h3>
-<p> Advances in microscopy combined with molecular biology techniques have revealed that macromolecules are localized in a non-homogeneous fashion in the cell cytoplasm, and that dynamic localization of proteins is critical for cell cycle progression and asymmetry. However, the molecular-level mechanisms that govern protein localization, and enable the cell to exploit subcellular localization towards orchestrating an asymmetric life cycle remain obscure. There are also instances of researchers using intuitive reasoning to develop very different verbal explanations of the same biological process. To provide a complementary view of the molecular mechanism controlling the asymmetric division cycle of <em>Caulobacter</em>, we have developed a mathematical model of the cell cycle regulatory network.
+<p align="center"><img "="" src="./202101_African_clawed_frog.png" width = 25%></p>
+<p class="style1" align="center">Figure 1: African Clawed Frog, <em>Xenopus laevis</em></p>
+<p class="style1" align="center"><a href="https://commons.wikimedia.org/wiki/File:202101_African_clawed_frog.png">DataBase Center for Life Science (DBCLS)</a>, <a href="https://creativecommons.org/licenses/by/4.0">CC BY 4.0</a>, via Wikimedia Commons</p>
+<p>African frog (<em>Xenopus laevis</em>) eggs are a convenient subject for cell division studies.
+    <ul>
+        <li>The original egg cell is large enough to observe with the naked eye.</li>
+        <li>Divisions occur every thirty minutes.</li>
+        <li>The cells do not grow; there is no G1 or G2 phase.</li>
+        <li>Frogs are relatively closely related to humans.</li>
+    </ul>
+    Frog eggs usually need to be fertilized to divide, but scientists can chemically induce division.
 </p>
 
-<p>
-	An advantage of a mathematical modeling approach is that it can be used to compare hypothetical models and establish which proposed hypothesis, if any, is better suited to explain the experimental observations. An in silico approach also allows modelers to decompose a large biochemical network into smaller sub-networks or 'modules', that can be modeled and analyzed independently. An end- point of a modeling study should also be to tease out underlying design principles that enable the cell to perform tasks in an efficient and robust fashion. A computational model that is successful in reproducing a majority of the experimental evidence can also be used to make predictions regarding the behavior of the control system under novel conditions. Hence, models can also be cross-validated by experimental tests of predictions made by the model.
+<p align="center"><img "="" src=".\Poro_Nuclear_Ovoc-eII_Xenopus.jpg" width="25%"></p>
+<p class="style1" align="center"> Figure 2: <em>Xenopus Laevis</em> eggs</p>
+<p class="style1" align="center"> Selles, J., Penrad-Mobayed, M., Guillaume, C., Fuger A., Auvray L., Faklaris O., Montel F., CC BY 4.0 <https://creativecommons.org/licenses/by/4.0>, via Wikimedia Commons</p>
+
+
+<h3>Bouncing Frog Eggs</h3>
+<p> In 1980, Marc Kirschner removed the nucleus of an activated frog egg.
+    The cell 'bounced'- expanding during mitosis, and contracting during interphase.
 </p>
+
+
+
+<h3>Split Eggs</h3>
+<p> In later experiments, scientists physically split an activated egg.
+    The half that contained the nucleus divided as normal.
+    The half without the nucleus expanded and contracted in sync with the other half's division.
+    This led to the discovery of M-phase Promoting Factor (MPF), a protein that triggers mitosis.
+</p>
+<!-- TODO: more information on what MPF is and how it works-->
+
+<p align="center"><img "="" src=".\Isolating_nucleus.jpg" width="25%"></p>
+<p class="style1" align="center"> Figure 3: Frog eggs are large enough to be physically manipulated.</p>
+<p class="style1" align="center"> <a href="https://commons.wikimedia.org/wiki/File:Isolating_the_nucleus_of_a_frog%27s_egg_(15682217330).jpg">UCL Mathematical &amp; Physical Sciences from London, UK</a>, <a href="https://creativecommons.org/licenses/by/2.0">CC BY 2.0</a>, via Wikimedia Commons</p>
 
 
 <h3><em>Reference</em></h3>
 <ol>
-	<li>Poindexter JS (1981) The Caulobacters: ubiquitous unusual bacteria. Microbiol Rev 45: 123-179.</li>
-	<li>Curtis PD, Brun Y V (2010) Getting in the Loop: Regulation of Development in Caulobacter crescentus. Microbiol Mol Biol Rev 74: 13-41.</li>
-
+	<li>Tang, Zhaohua Irene. "The Domino and Clock Models of Cell Cycle Regulation." Nature News, Nature Publishing Group, 2010, www.nature.com/scitable/topicpage/the-domino-and-clock-models-of-cell-14233440/. </li>
+    <li>Borisuk, Mark T. "Bifurcation Analysis of a Model of the Frog Egg Cell Cycle." Thesis / Dissertation ETD, Virginia Tech, 1997. VTechWorks, vtechworks.lib.vt.edu/bitstream/handle/10919/29605/borisuk.pdf. Accessed 6 Feb. 2022. </li>
 </ol>
-
 
 </div> <!-- end #content -->
 </td></tr>
