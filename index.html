@@ -26,6 +26,7 @@
 <meta name="rating" content="General">
 <link href="./css/buddingYeast.css" title="main" rel="stylesheet" type="text/css">
 <link href="./css/text_only.css" title="Text only" rel="alternate stylesheet" type="text/css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <script>
 
@@ -79,10 +80,17 @@ diagram.focus();
 <ul id="mainList">
 <li><a href="././index.html">Home</a></li>
 <li><a href="./Intro.html">Introduction</a></li>
-<li><a href="#" onclick="hideshow(&#39;CellGrowth&#39;)">Cell Growth Models</a></li>
+<li><a href="#" onclick="hideshow(&#39;CellGrowth&#39;)">Cell Growth Models <i class="fa fa-caret-down"></i></a></li>
   <ul id="CellGrowth" style="display:none">
   <li><a class="" href="./FrogEggModel.html">Frog Egg Model</a></li>
   <li><a class="" href="./BuddingYeastCell.html">Budding Yeast Cell Model</a></li>
+  </ul>
+  <li><a href="./GenericCellCycle.html">Generic Cell Cycle</a></li>
+<li><a href="#" onclick="hideshow(&#39;Caulobacter&#39;)">Caulobacter Cell Cycle</a></li>
+  <ul id="Caulobacter" style="display:none">
+  <li><a class="" href="./FrogEggModel.html">Caulobacter Introduction</a></li>
+  <li><a class="" href="./TemporalModels.html">Temporal Cell Models</a></li>
+  <li><a class="" href="./SpatialModels.html">Spatial Cell Models</a></li>
   </ul>
 <li><a href="#" onclick="hideshow(&#39;PleC&#39;)">Bistable Histidine Kinase</a></li>
   <ul id="PleC" style="display:none">
