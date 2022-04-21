@@ -78,46 +78,46 @@ diagram.focus();
 
 
 <ul id="mainList">
-<li><a href="././index.html">Home</a></li>
-<li><a href="./Intro.html">Introduction</a></li>
-<li><a href="#" onclick="hideshow(&#39;CellGrowth&#39;)">Cell Growth Models <i class="fa fa-caret-down"></i></a></li>
-  <ul id="CellGrowth" style="display:none">
-  <li><a class="" href="./FrogEggModel.html">Frog Egg Model</a></li>
-  <li><a class="" href="./BuddingYeastCell.html">Budding Yeast Cell Model</a></li>
-  </ul>
-  <li><a href="./GenericCellCycle.html">Generic Cell Cycle</a></li>
-<li><a href="#" onclick="hideshow(&#39;Caulobacter&#39;)">Caulobacter Cell <i class="fa fa-caret-down" style="font-size: 20px"></i></a></li>
-  <ul id="Caulobacter" style="display:none">
-  <li><a class="" href="./FrogEggModel.html">Caulobacter Introduction</a></li>
-  <li><a class="" href="./TemporalModels.html">Temporal Cell Models</a></li>
-  <li><a class="" href="./SpatialModels.html">Spatial Cell Models</a></li>
-  </ul>
-<li><a href="#" onclick="hideshow(&#39;PleC&#39;)">Bistable Histidine Kinase</a></li>
-  <ul id="PleC" style="display:none">
-  <li><a class="" href="./PDM.html">Model</a></li>
-  <li><a class="" href="./PDR.html">Results</a></li>
-  </ul>
-<li><a href="#" onclick="hideshow(&#39;Loc&#39;)">PleC and DivL Localization</a></li>
-  <ul id="Loc" style="display:none">
-  <li><a class="" href="./DM.html">Model</a></li>
-  <li><a class="" href="./DR.html">Results</a></li>
-  </ul>
-<li><a href="#" onclick="hideshow(&#39;Turing&#39;)">PopZ Localization</a></li>
-  <ul id="Turing" style="display:none">
-    <li><a class="" id="WT_STSW" style="" href="./TM.html">Model</a></li> 
-  <li><a class="" id="WT_Swarmer" style="" href="./TR.html">Results</a></li>    
-  </ul>
+  <li><a href="././index.html">Home</a></li>
+  <li><a href="./Intro.html">Introduction</a></li>
+  <li><a href="#" onclick="hideshow(&#39;CellGrowth&#39;)">Cell Growth Models <i class="fa fa-caret-down" style="font-size: 18px"></i></a></li>
+    <ul id="CellGrowth" style="display:none">
+    <li><a class="" href="./FrogEggModel.html">Frog Egg Model</a></li>
+    <li><a class="" href="./BuddingYeastCell.html">Budding Yeast Cell Model</a></li>
+    </ul>
+    <li><a href="./GenericCellCycle.html">Generic Cell Cycle</a></li>
+  <li><a href="#" onclick="hideshow(&#39;Caulobacter&#39;)">Caulobacter Cell <i class="fa fa-caret-down" style="font-size: 18px"></i></a></li>
+    <ul id="Caulobacter" style="display:none">
+    <li><a class="" href="./FrogEggModel.html">Caulobacter Introduction</a></li>
+    <li><a class="" href="./TemporalModels.html">Temporal Cell Models</a></li>
+    <li><a class="" href="./SpatialModels.html">Spatial Cell Models</a></li>
+    </ul>
+  <li><a href="#" onclick="hideshow(&#39;PleC&#39;)">Bistable Histidine Kinase</a></li>
+    <ul id="PleC" style="display:none">
+    <li><a class="" href="./PDM.html">Model</a></li>
+    <li><a class="" href="./PDR.html">Results</a></li>
+    </ul>
+  <li><a href="#" onclick="hideshow(&#39;Loc&#39;)">PleC and DivL Localization</a></li>
+    <ul id="Loc" style="display:none">
+    <li><a class="" href="./DM.html">Model</a></li>
+    <li><a class="" href="./DR.html">Results</a></li>
+    </ul>
+  <li><a href="#" onclick="hideshow(&#39;Turing&#39;)">PopZ Localization</a></li>
+    <ul id="Turing" style="display:none">
+      <li><a class="" id="WT_STSW" style="" href="./TM.html">Model</a></li> 
+    <li><a class="" id="WT_Swarmer" style="" href="./TR.html">Results</a></li>    
+    </ul>
+    
+  <li><a href="#" onclick="hideshow(&#39;Chromosome&#39;)">Chromosome Segregation</a></li>
+    <ul id="Chromosome" style="display:none">
+    <li><a id="mutant_menu_ctrA" class="" href="./CM.html">Model</a></li>
+  <li><a id="mutant_menu_gcrA" class="" href="./CR.html">Results</a></li>
+    </ul>
+  <li><a href="./InterestingFacts.html">Interesting Cell Cycle Facts</a></li>
+  <li><a href="./Visualization.html">Visualization</a></li>
+  <li><a href="./Contact.html">Contact</a></li>
   
-<li><a href="#" onclick="hideshow(&#39;Chromosome&#39;)">Chromosome Segregation</a></li>
-  <ul id="Chromosome" style="display:none">
-  <li><a id="mutant_menu_ctrA" class="" href="./CM.html">Model</a></li>
-<li><a id="mutant_menu_gcrA" class="" href="./CR.html">Results</a></li>
   </ul>
-<li><a href="./InterestingFacts.html">Interesting Cell Cycle Facts</a></li>
-<li><a href="./Visualization.html">Visualization</a></li>
-<li><a href="./Contact.html">Contact</a></li>
-
-</ul>
 
 
 </div>
@@ -170,83 +170,6 @@ diagram.focus();
   <li>Immunology and The Spread of Diseases: </li>
 
 </ol>
-
-<div id="draw">
-<h2><em>Caulobacter</em> cell Division Visualization</h2>
-<p></p>
-
-<form id="model">
-<b>Select Model:</b>
-  <select id="project" style="font-size:120%">
-    <option value="none"></option>
-    <option value="PleC">PleC</option>
-    <option value="PopZ">PopZ</option>
-  </select>
-</form>
-
-
-<form id="PleCM" hidden="hidden">
-
-<fieldset data-role="controlgroup">
-      <legend style="font-size:110%"><b>PleC Model</b> - choose species:</legend>
-
-          <input type="checkbox" id="1">
-          <label for="1" id="101" style="color:black">PleC-phos</label>
-          <input type="checkbox" id="2">
-          <label for="2" id="102" style="color:black">PleC-kin</label>
-          <input type="checkbox" id="3">
-          <label for="3" id="103" style="color:black">DivK</label>
-          <input type="checkbox" id="4">
-          <label for="4" id="104" style="color:black">DivK~P</label>
-          <input type="checkbox" id="5">
-          <label for="5" id="105" style="color:black">DivJ</label>
-          <input type="checkbox" id="6">
-          <label for="6" id="106" style="color:black">CckA-phos</label>
-          <input type="checkbox" id="7">
-          <label for="7" id="107" style="color:black">CckA-kin</label>
-          <input type="checkbox" id="8">
-          <label for="8" id="108" style="color:black">CtrA</label>
-          <input type="checkbox" id="9">
-          <label for="9" id="109" style="color:black">CtrA~P</label>
-          <input type="checkbox" id="10">
-          <label for="10" id="110" style="color:black">DivL</label>
-          
-          <input type="button" id="submitPleC" onclick="visPleC()" value="Submit"> 
-          <input type="submit"  value="Clear"> 
-      </fieldset>
-</form>
-
-<form id="PopZM" hidden="hidden">
-
-<fieldset data-role="controlgroup">
-      <legend style="font-size:110%"><b>PopZ Model</b> - choose species:</legend>
-
-          <input type="checkbox" id="21">
-          <label for="21" id="201" style="color:black">PopZ-p</label>
-          <input type="checkbox" id="22">
-          <label for="22" id="202" style="color:black">PopZ-m</label>
-          <input type="checkbox" id="23">
-          <label for="23" id="203" style="color:black">mRNA</label>
-          <input type="checkbox" id="24">
-          <label for="24" id="204" style="color:black">Gene</label>
-          
-          <input type="button" id="submitPopZ" onclick="visPopZ()" value="Submit"> 
-          <input type="submit"  value="Clear"> 
-      </fieldset>
-</form>
-
-
-<button id="g-play-button" hidden="hidden">Play</button> 
-
-<div id="areaPleC"> 
-
-</div>
-
-<div id="areaPopZ"> 
-
-</div>
-
-</div>
 
 <h3><em>Reference</em></h3>
 <ol>
