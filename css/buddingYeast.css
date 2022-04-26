@@ -24,7 +24,7 @@ border: 1px solid #1D405E;
 * html #container {width:950px;} /* this only visible to IE */
 
 /*--------------------TABLE STYLES-----------------------------------------------------------*/
-#side_column {width:200px; background-color: #07417F;}
+#side_column {width:280px; background-color: #07417F;}
 
 /*--------------------HEADER STYLES-----------------------------------------------------------*/
 #top{padding: .5em; margin:0; background: #276BA4; border-bottom: 1px solid gray;}
@@ -66,7 +66,7 @@ a.credits:hover {color:#519EF6;}
 
 #navcontainer li {border-bottom:1px solid white}
 #navcontainer ul {margin: 0;padding-left: 0;list-style-type: none; /**/}
-#navcontainer a {display: block; padding: 4px; text-decoration: none; font-size:100%}
+#navcontainer a {display: block; padding: 4px; text-decoration: none; font-size:150%}
 * html #navcontainer a {width:100%;} /* this only visible to IE. Needed to get full roll-over effect*/
 #navcontainer a:link, #navcontainer a:visited {color: white;}
 #navcontainer a:hover{color: #fff; }
