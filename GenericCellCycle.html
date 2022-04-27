@@ -26,6 +26,7 @@
 <meta name="rating" content="General">
 <link href="./css/buddingYeast.css" title="main" rel="stylesheet" type="text/css">
 <link href="./css/text_only.css" title="Text only" rel="alternate stylesheet" type="text/css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <script>
 
@@ -77,43 +78,23 @@ diagram.focus();
 
 
 <ul id="mainList">
-<li><a href="././index.html">Home</a></li>
-<li><a href="./Intro.html">Introduction</a></li>
-<li><a href="#" onclick="hideshow(&#39;CellGrowth&#39;)">Cell Growth Models</a></li>
-  <ul id="CellGrowth" style="display:none">
-  <li><a class="" href="./FrogEggModel.html">Frog Egg Model</a></li>
-  <li><a class="" href="./BuddingYeastCell.html">Budding Yeast Cell Model</a></li>
-  </ul>
-<li><a href="./Caulobacter.html" onclick="hideshow(&#39;Caulobacter&#39;)">Caulobacter Cell Cycle</a></li>
-  <ul id="Caulobacter" style="display:none">
-    <li><a class="" href="./FrogEggModel.html">Frog Egg Model 2</a></li>
-    <li><a class="" href="./BuddingYeastCell.html">Budding Yeast Cell Model 2</a></li>
-  </ul>
-<li><a href="#" onclick="hideshow(&#39;PleC&#39;)">Bistable Histidine Kinase</a></li>
-  <ul id="PleC" style="display:none">
-  <li><a class="" href="./PDM.html">Model</a></li>
-  <li><a class="" href="./PDR.html">Results</a></li>
-  </ul>
-<li><a href="#" onclick="hideshow(&#39;Loc&#39;)">PleC and DivL Localization</a></li>
-  <ul id="Loc" style="display:none">
-  <li><a class="" href="./DM.html">Model</a></li>
-  <li><a class="" href="./DR.html">Results</a></li>
-  </ul>
-<li><a href="#" onclick="hideshow(&#39;Turing&#39;)">PopZ Localization</a></li>
-  <ul id="Turing" style="display:none">
-    <li><a class="" id="WT_STSW" style="" href="./TM.html">Model</a></li> 
-  <li><a class="" id="WT_Swarmer" style="" href="./TR.html">Results</a></li>    
-  </ul>
-  
-<li><a href="#" onclick="hideshow(&#39;Chromosome&#39;)">Chromosome Segregation</a></li>
-  <ul id="Chromosome" style="display:none">
-  <li><a id="mutant_menu_ctrA" class="" href="./CM.html">Model</a></li>
-<li><a id="mutant_menu_gcrA" class="" href="./CR.html">Results</a></li>
-  </ul>
-<li><a href="./InterestingFacts.html">Interesting Cell Cycle Facts</a></li>
-<li><a href="./Visualization.html">Visualization</a></li>
-<li><a href="./Contact.html">Contact</a></li>
-
+  <li><a href="././index.html">Home</a></li>
+  <li><a href="./GenericCellCycle.html">Generic Cell Cycle</a></li>
+  <li><a href="#" onclick="hideshow(&#39;CellGrowth&#39;)">Cell Growth Models <i class="fa fa-caret-down" style="font-size: 18px"></i></a></li>
+    <ul id="CellGrowth" style="display:none">
+    <li><a class="" href="./FrogEggModel.html">Frog Egg Model</a></li>
+    <li><a class="" href="./BuddingYeastCell.html">Budding Yeast Cell Model</a></li>
+    <li><a class="" href="./FissionYeastCell.html">Fission Yeast Cell Model</a></li>
+    </ul>
+  <li><a href="#" onclick="hideshow(&#39;Caulobacter&#39;)">Caulobacter Model <i class="fa fa-caret-down" style="font-size: 18px"></i></a></li>
+    <ul id="Caulobacter" style="display:none">
+    <li><a class="" href="./Caulobacter.html">Caulobacter Introduction</a></li>
+    <li><a class="" href="./TemporalModules.html">Temporal Cell Modules</a></li>
+    <li><a class="" href="./SpatialModules.html">Spatial Cell Modules</a></li>
+    </ul>
+  <li><a href="./InterestingFacts.html">Interesting Cell Cycle Facts</a></li>
+  <li><a href="./Visualization.html">Visualization</a></li>
+  <li><a href="./Contact.html">Contact</a></li>
 </ul>
 
 
@@ -132,6 +113,12 @@ diagram.focus();
 <div id="What_Is_The_Cell_Cycle"><h1>How is the Cell Cycle Divided?<b></b></h1></div>
 <div id="body1"><p>The cell cycle is divided into 4 phases with checkpoints between phases, which are used to regulate whether a cell has reached the requirements to transition to the next phase. Cell cycle checkpoints are crucial, because they monitor cell size and ensure that each daughter cell is created with the appropirate amount of genetic and biosyntehtic material.</p></div>
 &nbsp;
+<center>
+  <figure>
+    <IMG src="Cell_Cycle_Graphic_1.jpg" alt="Stages of Mitosis Gif" style="width:40%;height:40%" >
+    <figcaption>Figure 2 - Stages of Mitosis Animation.</figcaption>
+  </figure>
+  </center>
 <div id="Cell_Cycle_and_Checkpoints"><h2>Cell Cycle Phases & Checkpoints Timeline<b></b></h2></div>
 &nbsp;
 <div id="G1_Phase"><h2><b>G1 Phase</b><b></b></h2></div>
