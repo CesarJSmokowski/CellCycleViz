@@ -1,4 +1,4 @@
-body {background-color:white; font-size:; margin-top:-10px; margin-left:0px; font-family:   Arial, Helvetica, sans-serif; text-align:center;}
+body {background-color:white; font-size:; margin-top: -10px; margin-left:0px; font-family:   Arial, Helvetica, sans-serif; text-align:center;}
 table {font-size:95%}
 p {}
 
@@ -18,7 +18,7 @@ width: 100%;
 margin: 10px auto;
 background-color: white;
 color: #333;
-border: 1px solid #1D405E;
+border: 0px solid #1D405E;
 }
 
 * html #container {width:950px;} /* this only visible to IE */
